@@ -8,9 +8,7 @@
 
 import UIKit
 
-var jobMgr = JobManager();
-
-class Job {
+class Job: Printable {
     var ID = 10;
     var pickup_address = "Seller Address";
     var pickup_available_time = "All the time";
@@ -30,29 +28,51 @@ class Job {
     
     var claimed = false;
     
+    var description: String {
+        return "Pickup address: \(pickup_address)\nPickup name: \(pickup_name)\nPickup phone#: \(pickup_phone)"
+    }
+    
     init (identifier: Int) {
         self.ID = identifier;
     }
-    
 }
 
-class JobManager: NSObject {
-    static var unclaimed_jobs = [Job]();
+class JobsList: NSObject {
+    
+    class var jobsList: JobsList {
+        struct Singleton {
+           static let instance = JobsList()
+        }
+        return Singleton.instance
+    }
+    
+    // store jobs by IDs
+    private(set) var claimedJobs: [Int]
     
     override init() {
-        super.init();
-        var job1 = Job(identifier: 1);
-        self.addJob(job1);
-        // print(self.unclaimed_jobs[0].pickup_name);
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let storedJobs = defaults.objectForKey("claimedJobs") as? [Int]
+        claimedJobs = storedJobs != nil ? storedJobs! : []
     }
     
-    func addJob(targetJob: Job){
-        JobManager.unclaimed_jobs.append(targetJob);
+    func addJob(targetJobId: Int){
+        if(!contains(claimedJobs, targetJobId)){
+            claimedJobs.append(targetJobId);
+            saveClaimedJobs()
+        }
     }
     
-    func claimJob(targetJob: Job, index: Int){
-        targetJob.claimed = true;
-        JobManager.unclaimed_jobs.removeAtIndex(index);
+    func removeJob(targetJobId: Int){
+        if let jobIndex = find(claimedJobs, targetJobId) {
+            claimedJobs.removeAtIndex(jobIndex)
+            saveClaimedJobs()
+        }
+    }
+    
+    func saveClaimedJobs(){
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setObject(claimedJobs, forKey: "unclaimedJobs")
+        defaults.synchronize()
     }
     
 }

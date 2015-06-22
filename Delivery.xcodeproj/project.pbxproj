@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1CCE6DE91B38B69600D0F5D2 /* JobsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCE6DE81B38B69600D0F5D2 /* JobsListViewController.swift */; };
+		1CCE6DEB1B38B7D700D0F5D2 /* JobDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCE6DEA1B38B7D700D0F5D2 /* JobDetailViewController.swift */; };
 		7E55C9CC1B3879B300360876 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E55C9CB1B3879B300360876 /* AppDelegate.swift */; };
-		7E55C9CE1B3879B300360876 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E55C9CD1B3879B300360876 /* MasterViewController.swift */; };
-		7E55C9D01B3879B300360876 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E55C9CF1B3879B300360876 /* DetailViewController.swift */; };
 		7E55C9D31B3879B300360876 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E55C9D11B3879B300360876 /* Main.storyboard */; };
 		7E55C9D51B3879B300360876 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E55C9D41B3879B300360876 /* Images.xcassets */; };
 		7E55C9D81B3879B300360876 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E55C9D61B3879B300360876 /* LaunchScreen.xib */; };
@@ -28,11 +28,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1CCE6DE81B38B69600D0F5D2 /* JobsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobsListViewController.swift; sourceTree = "<group>"; };
+		1CCE6DEA1B38B7D700D0F5D2 /* JobDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDetailViewController.swift; sourceTree = "<group>"; };
 		7E55C9C61B3879B300360876 /* Delivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Delivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E55C9CA1B3879B300360876 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E55C9CB1B3879B300360876 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7E55C9CD1B3879B300360876 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		7E55C9CF1B3879B300360876 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		7E55C9D21B3879B300360876 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7E55C9D41B3879B300360876 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7E55C9D71B3879B300360876 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -83,8 +83,8 @@
 			children = (
 				7E55C9CB1B3879B300360876 /* AppDelegate.swift */,
 				7E55C9ED1B38873100360876 /* Jobs.swift */,
-				7E55C9CD1B3879B300360876 /* MasterViewController.swift */,
-				7E55C9CF1B3879B300360876 /* DetailViewController.swift */,
+				1CCE6DEA1B38B7D700D0F5D2 /* JobDetailViewController.swift */,
+				1CCE6DE81B38B69600D0F5D2 /* JobsListViewController.swift */,
 				7E55C9D11B3879B300360876 /* Main.storyboard */,
 				7E55C9D41B3879B300360876 /* Images.xcassets */,
 				7E55C9D61B3879B300360876 /* LaunchScreen.xib */,
@@ -218,8 +218,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E55C9D01B3879B300360876 /* DetailViewController.swift in Sources */,
-				7E55C9CE1B3879B300360876 /* MasterViewController.swift in Sources */,
+				1CCE6DE91B38B69600D0F5D2 /* JobsListViewController.swift in Sources */,
+				1CCE6DEB1B38B7D700D0F5D2 /* JobDetailViewController.swift in Sources */,
 				7E55C9CC1B3879B300360876 /* AppDelegate.swift in Sources */,
 				7E55C9EE1B38873100360876 /* Jobs.swift in Sources */,
 			);
@@ -349,6 +349,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Delivery/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -359,6 +360,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Delivery/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -377,6 +379,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = DeliveryTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Delivery.app/Delivery";
@@ -392,6 +395,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = DeliveryTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Delivery.app/Delivery";
@@ -417,6 +421,7 @@
 				7E55C9E91B3879B300360876 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7E55C9EA1B3879B300360876 /* Build configuration list for PBXNativeTarget "DeliveryTests" */ = {
 			isa = XCConfigurationList;
@@ -425,6 +430,7 @@
 				7E55C9EC1B3879B300360876 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
