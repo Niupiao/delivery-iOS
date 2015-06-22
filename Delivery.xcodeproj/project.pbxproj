@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1CCE6DE71B38867300D0F5D2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCE6DE61B38867300D0F5D2 /* LoginViewController.swift */; };
 		7E55C9CC1B3879B300360876 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E55C9CB1B3879B300360876 /* AppDelegate.swift */; };
 		7E55C9CE1B3879B300360876 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E55C9CD1B3879B300360876 /* MasterViewController.swift */; };
 		7E55C9D01B3879B300360876 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E55C9CF1B3879B300360876 /* DetailViewController.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1CCE6DE61B38867300D0F5D2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7E55C9C61B3879B300360876 /* Delivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Delivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E55C9CA1B3879B300360876 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E55C9CB1B3879B300360876 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				7E55C9CB1B3879B300360876 /* AppDelegate.swift */,
 				7E55C9CD1B3879B300360876 /* MasterViewController.swift */,
 				7E55C9CF1B3879B300360876 /* DetailViewController.swift */,
+				1CCE6DE61B38867300D0F5D2 /* LoginViewController.swift */,
 				7E55C9D11B3879B300360876 /* Main.storyboard */,
 				7E55C9D41B3879B300360876 /* Images.xcassets */,
 				7E55C9D61B3879B300360876 /* LaunchScreen.xib */,
@@ -215,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CCE6DE71B38867300D0F5D2 /* LoginViewController.swift in Sources */,
 				7E55C9D01B3879B300360876 /* DetailViewController.swift in Sources */,
 				7E55C9CE1B3879B300360876 /* MasterViewController.swift in Sources */,
 				7E55C9CC1B3879B300360876 /* AppDelegate.swift in Sources */,
