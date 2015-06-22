@@ -37,7 +37,7 @@ class Job {
 }
 
 class JobManager: NSObject {
-    var unclaimed_jobs = [Job]();
+    static var unclaimed_jobs = [Job]();
     
     override init() {
         super.init();
@@ -47,12 +47,12 @@ class JobManager: NSObject {
     }
     
     func addJob(targetJob: Job){
-        unclaimed_jobs.append(targetJob);
+        JobManager.unclaimed_jobs.append(targetJob);
     }
     
     func claimJob(targetJob: Job, index: Int){
         targetJob.claimed = true;
-        unclaimed_jobs.removeAtIndex(index);
+        JobManager.unclaimed_jobs.removeAtIndex(index);
     }
     
 }

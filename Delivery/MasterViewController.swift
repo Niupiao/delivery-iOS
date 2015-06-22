@@ -12,21 +12,6 @@ class MasterViewController: UITableViewController, UITableViewDelegate, UITableV
 
     @IBOutlet var tblJobs: UITableView!
     
-    
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return jobMgr.unclaimed_jobs.count
-    }
-
-    
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "test");
-        cell.textLabel!.text = jobMgr.unclaimed_jobs[indexPath.row].pickup_address;
-        return cell
-    }
-    
-    
-    
-    
     var objects = [AnyObject]()
     
     override func awakeFromNib() {
@@ -84,6 +69,16 @@ class MasterViewController: UITableViewController, UITableViewDelegate, UITableV
         }
     }
 
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return jobMgr.unclaimed_jobs.count
+    }
+    
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "test");
+        cell.textLabel!.text = jobMgr.unclaimed_jobs[indexPath.row].pickup_address;
+        return cell
+    }
 
 }
 
