@@ -21,7 +21,7 @@
                                 <rect key="frame" x="270" y="66" width="60" height="67"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Key to Login:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1zf-3y-cSt">
-                                <rect key="frame" x="227" y="256" width="147" height="21"/>
+                                <rect key="frame" x="227.5" y="256.5" width="146.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -36,7 +36,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Key" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y9h-az-uba">
-                                <rect key="frame" x="166" y="285" width="268" height="30"/>
+                                <rect key="frame" x="166" y="285" width="268.5" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
