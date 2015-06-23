@@ -10,6 +10,7 @@
 		1CCE6DE91B38B69600D0F5D2 /* JobsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCE6DE81B38B69600D0F5D2 /* JobsListViewController.swift */; };
 		1CCE6DEB1B38B7D700D0F5D2 /* JobDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCE6DEA1B38B7D700D0F5D2 /* JobDetailViewController.swift */; };
 		1CCE6DEF1B38FC9600D0F5D2 /* ClaimedJobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCE6DEE1B38FC9600D0F5D2 /* ClaimedJobsViewController.swift */; };
+		1CCE6DF31B3917E400D0F5D2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCE6DF21B3917E400D0F5D2 /* LoginViewController.swift */; };
 		7E55C9CC1B3879B300360876 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E55C9CB1B3879B300360876 /* AppDelegate.swift */; };
 		7E55C9D31B3879B300360876 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E55C9D11B3879B300360876 /* Main.storyboard */; };
 		7E55C9D51B3879B300360876 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E55C9D41B3879B300360876 /* Images.xcassets */; };
@@ -44,6 +45,7 @@
 		1CCE6DE81B38B69600D0F5D2 /* JobsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobsListViewController.swift; sourceTree = "<group>"; };
 		1CCE6DEA1B38B7D700D0F5D2 /* JobDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDetailViewController.swift; sourceTree = "<group>"; };
 		1CCE6DEE1B38FC9600D0F5D2 /* ClaimedJobsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClaimedJobsViewController.swift; sourceTree = "<group>"; };
+		1CCE6DF21B3917E400D0F5D2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		7E55C9C61B3879B300360876 /* Delivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Delivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E55C9CA1B3879B300360876 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E55C9CB1B3879B300360876 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				1CCE6DEE1B38FC9600D0F5D2 /* ClaimedJobsViewController.swift */,
 				1CCE6DEA1B38B7D700D0F5D2 /* JobDetailViewController.swift */,
 				1CCE6DE81B38B69600D0F5D2 /* JobsListViewController.swift */,
+				1CCE6DF21B3917E400D0F5D2 /* LoginViewController.swift */,
 				7E55C9D11B3879B300360876 /* Main.storyboard */,
 				7E55C9D41B3879B300360876 /* Images.xcassets */,
 				7E55C9D61B3879B300360876 /* LaunchScreen.xib */,
@@ -234,6 +237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CCE6DF31B3917E400D0F5D2 /* LoginViewController.swift in Sources */,
 				1CCE6DEF1B38FC9600D0F5D2 /* ClaimedJobsViewController.swift in Sources */,
 				1CCE6DE91B38B69600D0F5D2 /* JobsListViewController.swift in Sources */,
 				1CCE6DEB1B38B7D700D0F5D2 /* JobDetailViewController.swift in Sources */,
