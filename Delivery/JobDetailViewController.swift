@@ -11,6 +11,9 @@ import UIKit
 class JobDetailViewController: UIViewController {
 
     @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var claimButton: UIButton!
+    
+    var showClaimButton: Bool = false
     
     var jobSelected: Job!
     
@@ -20,10 +23,15 @@ class JobDetailViewController: UIViewController {
         if jobSelected != nil {
             detailLabel.text! = "\(jobSelected)"
         }
+        claimButton.hidden = !showClaimButton
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
+    @IBAction func claimButtonPressed(sender: UIButton) {
+        let claimedJobs = JobsList.jobsList
+        claimedJobs.addJob(jobSelected.ID)
+    }
 }

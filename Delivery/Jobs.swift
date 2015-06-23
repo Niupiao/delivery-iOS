@@ -32,6 +32,10 @@ class Job: Printable {
         return "Pickup address: \(pickup_address)\nPickup name: \(pickup_name)\nPickup phone#: \(pickup_phone)"
     }
     
+    init(){
+        
+    }
+    
     init (identifier: Int) {
         self.ID = identifier;
     }
@@ -48,11 +52,14 @@ class JobsList: NSObject {
     
     // store jobs by IDs
     private(set) var claimedJobs: [Int]
+    var unclaimedJobs: [Job]
     
     override init() {
         let defaults = NSUserDefaults.standardUserDefaults()
-        let storedJobs = defaults.objectForKey("claimedJobs") as? [Int]
-        claimedJobs = storedJobs != nil ? storedJobs! : []
+        let storedClaimedJobs = defaults.objectForKey("claimedJobs") as? [Int]
+        let storedUnclaimedJobs = defaults.objectForKey("unclaimedJobs") as? [Job]
+        claimedJobs = storedClaimedJobs != nil ? storedClaimedJobs! : []
+        unclaimedJobs = storedUnclaimedJobs != nil ? storedUnclaimedJobs! : []
     }
     
     func addJob(targetJobId: Int){
@@ -71,7 +78,7 @@ class JobsList: NSObject {
     
     func saveClaimedJobs(){
         let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setObject(claimedJobs, forKey: "unclaimedJobs")
+        defaults.setObject(claimedJobs, forKey: "claimedJobs")
         defaults.synchronize()
     }
     

@@ -17,11 +17,73 @@
                     </tabBar>
                     <connections>
                         <segue destination="rS3-R9-Ivy" kind="relationship" relationship="viewControllers" id="95H-PL-NUR"/>
+                        <segue destination="lVX-Bu-reR" kind="relationship" relationship="viewControllers" id="CHw-h0-Rgu"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="748-37-Amn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1010" y="-3"/>
+        </scene>
+        <!--Claimed Jobs-->
+        <scene sceneID="Op0-ed-unI">
+            <objects>
+                <tableViewController id="v2k-jC-RbW" customClass="ClaimedJobsViewController" customModule="Delivery" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="6Fm-k9-vYK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ClaimedJobsCell" textLabel="YUk-Ff-qH2" detailTextLabel="RhY-IT-lq7" style="IBUITableViewCellStyleSubtitle" id="M0M-qQ-pPn">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M0M-qQ-pPn" id="429-Xo-BoT">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YUk-Ff-qH2">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="RhY-IT-lq7">
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Ah7-4n-0Wa" kind="show" identifier="FromClaimed" id="rEC-GS-FLX"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="v2k-jC-RbW" id="c4I-lK-U2w"/>
+                            <outlet property="delegate" destination="v2k-jC-RbW" id="CaB-AY-mD3"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Claimed Jobs" id="5qN-oV-9Jv"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="udx-uf-jKX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="209" y="-823"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="i0l-Vf-GKh">
+            <objects>
+                <navigationController id="lVX-Bu-reR" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="featured" id="c6S-VL-7mL"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Qgw-bW-YJD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="v2k-jC-RbW" kind="relationship" relationship="rootViewController" id="zw7-kF-amw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cvW-gY-xKO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-810" y="-840"/>
         </scene>
         <!--Master-->
         <scene sceneID="cUi-kZ-frf">
@@ -48,7 +110,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="JobListingCell" textLabel="2pz-XF-uhl" detailTextLabel="XKk-nM-nwy" style="IBUITableViewCellStyleSubtitle" id="m0d-ak-lc9">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UnclaimedJobsCell" textLabel="2pz-XF-uhl" detailTextLabel="XKk-nM-nwy" style="IBUITableViewCellStyleSubtitle" id="m0d-ak-lc9">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="m0d-ak-lc9" id="d3P-M7-ByW">
@@ -72,7 +134,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <segue destination="Ah7-4n-0Wa" kind="show" identifier="showDetail" id="jUr-3t-vfg"/>
+                                    <segue destination="Ah7-4n-0Wa" kind="show" identifier="FromUnclaimed" id="jUr-3t-vfg"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -100,8 +162,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Detail view content goes here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Lei-5M-9Gs">
-                                <rect key="frame" x="20" y="64" width="560" height="487"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AcK-wE-W7e">
+                                <rect key="frame" x="280" y="483" width="40" height="30"/>
+                                <state key="normal" title="Claim">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="claimButtonPressed:" destination="Ah7-4n-0Wa" eventType="touchUpInside" id="EZk-og-fGu"/>
+                                </connections>
+                            </button>
+                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" text="Detail view content goes here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Lei-5M-9Gs">
+                                <rect key="frame" x="20" y="72" width="560" height="380"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" size="system"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -110,20 +181,26 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="a0L-h9-sNL" firstAttribute="top" secondItem="Lei-5M-9Gs" secondAttribute="bottom" id="83v-IU-7pc"/>
+                            <constraint firstAttribute="centerX" secondItem="AcK-wE-W7e" secondAttribute="centerX" id="0Ve-8n-lVe"/>
                             <constraint firstAttribute="centerX" secondItem="Lei-5M-9Gs" secondAttribute="centerX" id="Bke-GB-o9b"/>
-                            <constraint firstItem="Lei-5M-9Gs" firstAttribute="top" secondItem="cIm-e0-J51" secondAttribute="bottom" id="RAq-Se-nfA"/>
+                            <constraint firstItem="Lei-5M-9Gs" firstAttribute="top" secondItem="cIm-e0-J51" secondAttribute="bottom" constant="8" id="RAq-Se-nfA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Lei-5M-9Gs" secondAttribute="trailing" constant="4" id="Sab-uO-DhQ"/>
+                            <constraint firstItem="AcK-wE-W7e" firstAttribute="top" secondItem="Lei-5M-9Gs" secondAttribute="bottom" constant="31" id="tpZ-Xp-Gjz"/>
+                            <constraint firstAttribute="centerX" secondItem="AcK-wE-W7e" secondAttribute="centerX" id="v8H-8b-Zqd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="cra-N8-TIN"/>
                     <connections>
+                        <outlet property="claimButton" destination="AcK-wE-W7e" id="mDO-JJ-OU1"/>
                         <outlet property="detailLabel" destination="Lei-5M-9Gs" id="MHz-lN-hey"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrm-kH-fPn" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1343" y="64"/>
+            <point key="canvasLocation" x="962" y="-712"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="jUr-3t-vfg"/>
+    </inferredMetricsTieBreakers>
 </document>
