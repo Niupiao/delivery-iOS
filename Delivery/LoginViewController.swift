@@ -10,6 +10,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var keyField: UITextField!
     
     override func viewDidLoad() {

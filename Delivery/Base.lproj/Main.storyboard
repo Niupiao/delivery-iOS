@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<<<<<<< HEAD
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="0l6-CB-Z7R">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -19,10 +20,35 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQ2-eS-cCr">
                                 <rect key="frame" x="279" y="214" width="42" height="21"/>
+=======
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jxG-XF-vgq">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="aw5-ln-jE5">
+            <objects>
+                <viewController id="jxG-XF-vgq" customClass="LoginViewController" customModule="Delivery" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="l5X-Om-NQE"/>
+                        <viewControllerLayoutGuide type="bottom" id="WfK-bi-dX7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dcq-aQ-zBD">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzc-ls-0MV">
+                                <rect key="frame" x="276" y="189" width="47.5" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20.5" id="wt5-vh-MXy"/>
+                                </constraints>
+>>>>>>> ff1d78ec9429466f66de1d71edae3e28a964dbc9
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+<<<<<<< HEAD
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Key" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WPi-0o-Nrc">
                                 <rect key="frame" x="178" y="285" width="245" height="30"/>
                                 <constraints>
@@ -149,6 +175,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cvW-gY-xKO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-810" y="-840"/>
+=======
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Key" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xJa-Bi-USg">
+                                <rect key="frame" x="173" y="238" width="253.5" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Uhs-BJ-c68"/>
+                                    <constraint firstAttribute="width" constant="253.5" id="vuZ-oS-x6x"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cowhead" translatesAutoresizingMaskIntoConstraints="NO" id="Ksg-VP-ZfO">
+                                <rect key="frame" x="269" y="93" width="60" height="67"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="67" id="qsy-4y-tGu"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7D-C8-vtJ">
+                                <rect key="frame" x="280" y="285" width="38" height="30"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButtonPressed:" destination="jxG-XF-vgq" eventType="touchUpInside" id="EZ8-fz-WRv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="F7D-C8-vtJ" secondAttribute="centerX" constant="1" id="1nL-BP-Q4m"/>
+                            <constraint firstAttribute="centerY" secondItem="xJa-Bi-USg" secondAttribute="centerY" constant="47" id="31r-wp-432"/>
+                            <constraint firstItem="xJa-Bi-USg" firstAttribute="top" secondItem="rzc-ls-0MV" secondAttribute="bottom" constant="28.5" id="BRf-js-3vF"/>
+                            <constraint firstItem="rzc-ls-0MV" firstAttribute="top" secondItem="Ksg-VP-ZfO" secondAttribute="bottom" constant="29" id="P9B-lv-LRC"/>
+                            <constraint firstAttribute="centerX" secondItem="rzc-ls-0MV" secondAttribute="centerX" constant="0.25" id="WRu-jX-kTd"/>
+                            <constraint firstAttribute="centerX" secondItem="xJa-Bi-USg" secondAttribute="centerX" id="ZfJ-WA-Hfo"/>
+                            <constraint firstItem="F7D-C8-vtJ" firstAttribute="top" secondItem="xJa-Bi-USg" secondAttribute="bottom" constant="17" id="gRk-hH-bFk"/>
+                            <constraint firstAttribute="centerX" secondItem="Ksg-VP-ZfO" secondAttribute="centerX" constant="1" id="qdS-hL-mRA"/>
+                            <constraint firstItem="Ksg-VP-ZfO" firstAttribute="top" secondItem="l5X-Om-NQE" secondAttribute="bottom" constant="73" id="qtx-2f-SG7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="keyField" destination="xJa-Bi-USg" id="IxG-lJ-MWN"/>
+                        <outlet property="loginButton" destination="F7D-C8-vtJ" id="jxe-4N-DZT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bCc-Ul-wQQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-793" y="73"/>
+>>>>>>> ff1d78ec9429466f66de1d71edae3e28a964dbc9
         </scene>
         <!--Master-->
         <scene sceneID="cUi-kZ-frf">
@@ -169,7 +243,11 @@
         <!--Master-->
         <scene sceneID="VgW-fR-Quf">
             <objects>
+<<<<<<< HEAD
                 <tableViewController title="Master" id="pGg-6v-bdr" customClass="JobsListViewController" customModule="Delivery" customModuleProvider="target" sceneMemberID="viewController">
+=======
+                <tableViewController title="Master" id="pGg-6v-bdr" customClass="MasterViewController" customModule="Delivery" customModuleProvider="target" sceneMemberID="viewController">
+>>>>>>> ff1d78ec9429466f66de1d71edae3e28a964dbc9
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="mLL-gJ-YKr">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -218,7 +296,11 @@
         <!--Detail-->
         <scene sceneID="Cn3-H9-jdl">
             <objects>
+<<<<<<< HEAD
                 <viewController title="Detail" id="Ah7-4n-0Wa" customClass="JobDetailViewController" customModule="Delivery" customModuleProvider="target" sceneMemberID="viewController">
+=======
+                <viewController title="Detail" id="Ah7-4n-0Wa" customClass="DetailViewController" customModule="Delivery" customModuleProvider="target" sceneMemberID="viewController">
+>>>>>>> ff1d78ec9429466f66de1d71edae3e28a964dbc9
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cIm-e0-J51"/>
                         <viewControllerLayoutGuide type="bottom" id="a0L-h9-sNL"/>
@@ -268,7 +350,10 @@
     <resources>
         <image name="cowhead" width="60" height="67"/>
     </resources>
+<<<<<<< HEAD
     <inferredMetricsTieBreakers>
         <segue reference="jUr-3t-vfg"/>
     </inferredMetricsTieBreakers>
+=======
+>>>>>>> ff1d78ec9429466f66de1d71edae3e28a964dbc9
 </document>
