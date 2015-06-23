@@ -1,10 +1,75 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1u2-XG-Dh1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="0l6-CB-Z7R">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="8gN-ag-ZBr">
+            <objects>
+                <viewController id="0l6-CB-Z7R" customClass="LoginViewController" customModule="Delivery" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KJv-6l-DFe"/>
+                        <viewControllerLayoutGuide type="bottom" id="mhm-CG-ui3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Zgq-vc-Hpg" customClass="UIControl">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQ2-eS-cCr">
+                                <rect key="frame" x="279" y="214" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Key" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WPi-0o-Nrc">
+                                <rect key="frame" x="178" y="285" width="245" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="245" id="4W0-qF-TkS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="textFieldDoneEditing:" destination="0l6-CB-Z7R" eventType="editingDidEndOnExit" id="9S2-4K-V81"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ku9-Ua-jeM">
+                                <rect key="frame" x="277" y="376" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="1u2-XG-Dh1" kind="show" id="lgx-3S-YYR"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cowhead" translatesAutoresizingMaskIntoConstraints="NO" id="tPo-1B-mNQ">
+                                <rect key="frame" x="270" y="61" width="60" height="67"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tPo-1B-mNQ" firstAttribute="top" secondItem="KJv-6l-DFe" secondAttribute="bottom" constant="41" id="8AR-e4-UfS"/>
+                            <constraint firstItem="xQ2-eS-cCr" firstAttribute="top" secondItem="tPo-1B-mNQ" secondAttribute="bottom" constant="86" id="JU6-n9-8jq"/>
+                            <constraint firstItem="Ku9-Ua-jeM" firstAttribute="top" secondItem="WPi-0o-Nrc" secondAttribute="bottom" constant="61" id="LS6-wb-MFT"/>
+                            <constraint firstAttribute="centerX" secondItem="Ku9-Ua-jeM" secondAttribute="centerX" id="Pub-I6-cki"/>
+                            <constraint firstAttribute="centerX" secondItem="WPi-0o-Nrc" secondAttribute="centerX" constant="-0.5" id="WEK-xP-Q70"/>
+                            <constraint firstAttribute="centerX" secondItem="xQ2-eS-cCr" secondAttribute="centerX" id="bi6-VS-2RC"/>
+                            <constraint firstItem="WPi-0o-Nrc" firstAttribute="top" secondItem="xQ2-eS-cCr" secondAttribute="bottom" constant="50" id="n8t-Mm-6xQ"/>
+                            <constraint firstAttribute="centerX" secondItem="tPo-1B-mNQ" secondAttribute="centerX" id="vHE-Zc-hWt"/>
+                        </constraints>
+                        <connections>
+                            <action selector="backgroundTap:" destination="0l6-CB-Z7R" eventType="touchDown" id="eWY-lq-o38"/>
+                        </connections>
+                    </view>
+                    <connections>
+                        <outlet property="keyField" destination="WPi-0o-Nrc" id="DJ7-r2-TH3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VaT-qU-fWZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1656" y="20"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="xlr-ik-yJS">
             <objects>
@@ -162,8 +227,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AcK-wE-W7e">
-                                <rect key="frame" x="280" y="483" width="40" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AcK-wE-W7e">
+                                <rect key="frame" x="280" y="196" width="40" height="30"/>
                                 <state key="normal" title="Claim">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -171,8 +236,8 @@
                                     <action selector="claimButtonPressed:" destination="Ah7-4n-0Wa" eventType="touchUpInside" id="EZk-og-fGu"/>
                                 </connections>
                             </button>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" text="Detail view content goes here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Lei-5M-9Gs">
-                                <rect key="frame" x="20" y="72" width="560" height="380"/>
+                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Detail view content goes here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Lei-5M-9Gs">
+                                <rect key="frame" x="20" y="148" width="560" height="17"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" size="system"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -183,7 +248,7 @@
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="AcK-wE-W7e" secondAttribute="centerX" id="0Ve-8n-lVe"/>
                             <constraint firstAttribute="centerX" secondItem="Lei-5M-9Gs" secondAttribute="centerX" id="Bke-GB-o9b"/>
-                            <constraint firstItem="Lei-5M-9Gs" firstAttribute="top" secondItem="cIm-e0-J51" secondAttribute="bottom" constant="8" id="RAq-Se-nfA"/>
+                            <constraint firstItem="Lei-5M-9Gs" firstAttribute="top" secondItem="cIm-e0-J51" secondAttribute="bottom" constant="84" id="RAq-Se-nfA"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Lei-5M-9Gs" secondAttribute="trailing" constant="4" id="Sab-uO-DhQ"/>
                             <constraint firstItem="AcK-wE-W7e" firstAttribute="top" secondItem="Lei-5M-9Gs" secondAttribute="bottom" constant="31" id="tpZ-Xp-Gjz"/>
                             <constraint firstAttribute="centerX" secondItem="AcK-wE-W7e" secondAttribute="centerX" id="v8H-8b-Zqd"/>
@@ -200,6 +265,9 @@
             <point key="canvasLocation" x="962" y="-712"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cowhead" width="60" height="67"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="jUr-3t-vfg"/>
     </inferredMetricsTieBreakers>
