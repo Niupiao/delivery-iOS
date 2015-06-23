@@ -10,25 +10,25 @@ import UIKit
 
 class JobsListViewController: UITableViewController, UITableViewDataSource {
     
+    var unclaimedJobs: JobsList!
     var jobsList: [Job]!
-    let cellIdentifier = "JobListingCell"
+    let unclaimedCellIdentifier = "UnclaimedJobsCell"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 44
-        jobsList = [
-            Job(identifier: 1),
-            Job(identifier: 2)
-        ]
+        // right thing to do here would be to get jobsList from server and assign it to unclaimedJobs
+        JobsList.jobsList.unclaimedJobs = [Job(identifier: 1), Job(identifier: 2)]
+        jobsList = JobsList.jobsList.unclaimedJobs
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     // MARK: - Table view data source
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -37,20 +37,24 @@ class JobsListViewController: UITableViewController, UITableViewDataSource {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(unclaimedCellIdentifier, forIndexPath: indexPath) as! UITableViewCell
         
-        cell.textLabel!.text = jobsList[indexPath.row].item_name
+        cell.textLabel!.text = String(jobsList[indexPath.row].ID)
         cell.detailTextLabel!.text = jobsList[indexPath.row].pickup_address
         
         return cell
+        
     }
     
+        
     // MARK: Segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)!
-        let jobVC = segue.destinationViewController as! JobDetailViewController
+
+            let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)!
+            let jobVC = segue.destinationViewController as! JobDetailViewController
         
-        jobVC.jobSelected = jobsList[indexPath.row]
-        jobVC.navigationItem.title = jobsList[indexPath.row].item_name
+            jobVC.jobSelected = jobsList[indexPath.row]
+            jobVC.navigationItem.title = jobsList[indexPath.row].item_name
+            jobVC.showClaimButton = true
     }
 }
