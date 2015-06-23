@@ -10,14 +10,14 @@ import UIKit
 
 class ClaimedJobsViewController: UITableViewController {
     
-    let claimedCellIdentifier = "ClaimedJobsCell"
+    let cellIdentifier = "ProgressCell"
     var jobsList: JobsList!
     var claimedJobIds: [Int]!
     var unclaimedJobs: [Job]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         jobsList = JobsList.jobsList
         unclaimedJobs = jobsList.unclaimedJobs
     }
@@ -47,11 +47,12 @@ class ClaimedJobsViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(claimedCellIdentifier, forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ProgressCell
         let job = findJobWithId(claimedJobIds[indexPath.row])!
         
-        cell.textLabel!.text = String(job.ID)
-        cell.detailTextLabel!.text = job.expiration_time
+        cell.address = job.pickup_address
+        cell.pickupWindow = job.pickup_available_time
+        cell.isPickedUp = false
         return cell
         
     }

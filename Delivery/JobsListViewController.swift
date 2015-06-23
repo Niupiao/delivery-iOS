@@ -12,13 +12,11 @@ class JobsListViewController: UITableViewController, UITableViewDataSource {
     
     var unclaimedJobs: JobsList!
     var jobsList: [Job]!
-    let unclaimedCellIdentifier = "UnclaimedJobsCell"
+    let cellIdentifier = "JobCell"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 44
         // right thing to do here would be to get jobsList from server and assign it to unclaimedJobs
         JobsList.jobsList.unclaimedJobs = [Job(identifier: 1), Job(identifier: 2)]
         jobsList = JobsList.jobsList.unclaimedJobs
@@ -37,15 +35,15 @@ class JobsListViewController: UITableViewController, UITableViewDataSource {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(unclaimedCellIdentifier, forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! JobCell
         
-        cell.textLabel!.text = String(jobsList[indexPath.row].ID)
-        cell.detailTextLabel!.text = jobsList[indexPath.row].pickup_address
+        cell.distance = "7 miles"
+        cell.time = "2-4pm"
+        cell.bounty = "7 tug"
         
         return cell
         
     }
-    
         
     // MARK: Segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
