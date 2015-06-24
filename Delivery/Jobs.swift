@@ -9,6 +9,7 @@
 import UIKit
 
 class Job: Printable {
+    
     var ID = 10;
     var pickup_address = "Seller Address";
     var pickup_available_time = "All the time";
@@ -27,6 +28,8 @@ class Job: Printable {
     var item_quantity = 1;
     
     var claimed = false;
+    var pickedUp = false
+    var delivered = false
     
     var description: String {
         return "Pickup address: \(pickup_address)\nPickup name: \(pickup_name)\nPickup phone#: \(pickup_phone)"
@@ -57,9 +60,8 @@ class JobsList: NSObject {
     override init() {
         let defaults = NSUserDefaults.standardUserDefaults()
         let storedClaimedJobs = defaults.objectForKey("claimedJobs") as? [Int]
-        let storedUnclaimedJobs = defaults.objectForKey("unclaimedJobs") as? [Job]
         claimedJobs = storedClaimedJobs != nil ? storedClaimedJobs! : []
-        unclaimedJobs = storedUnclaimedJobs != nil ? storedUnclaimedJobs! : []
+        unclaimedJobs = []
     }
     
     func addJob(targetJobId: Int){

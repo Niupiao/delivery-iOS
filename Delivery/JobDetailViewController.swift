@@ -13,8 +13,6 @@ class JobDetailViewController: UIViewController {
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var claimButton: UIButton!
     
-    var showClaimButton: Bool = false
-    
     var jobSelected: Job!
     
     override func viewDidLoad() {
@@ -22,8 +20,8 @@ class JobDetailViewController: UIViewController {
         
         if jobSelected != nil {
             detailLabel.text! = "\(jobSelected)"
+            claimButton.hidden = jobSelected.claimed
         }
-        claimButton.hidden = !showClaimButton
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,5 +31,7 @@ class JobDetailViewController: UIViewController {
     @IBAction func claimButtonPressed(sender: UIButton) {
         let claimedJobs = JobsList.jobsList
         claimedJobs.addJob(jobSelected.ID)
+        jobSelected.claimed = true // maybe unclaimedJobsList should be a database that's synced with server?
+                                    // line doesn't seem to have a long term effect. jobSelected goes back to false when user closes app.
     }
 }

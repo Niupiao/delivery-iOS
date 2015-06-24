@@ -43,6 +43,7 @@ class ProgressCell: UITableViewCell {
         // Initialization code
         
         pickupSwitch.setOn(false, animated: true)
+        
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

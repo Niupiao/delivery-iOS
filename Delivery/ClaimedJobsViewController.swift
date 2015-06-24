@@ -8,9 +8,10 @@
 
 import UIKit
 
-class ClaimedJobsViewController: UITableViewController {
+class ClaimedJobsViewController: UITableViewController, UITableViewDataSource {
     
-    let cellIdentifier = "ProgressCell"
+    let pickupCellIdentifier = "ProgressCell"
+    let deliveryCellIdentifier = "DeliveryCell"
     var jobsList: JobsList!
     var claimedJobIds: [Int]!
     var unclaimedJobs: [Job]!
@@ -20,6 +21,7 @@ class ClaimedJobsViewController: UITableViewController {
         
         jobsList = JobsList.jobsList
         unclaimedJobs = jobsList.unclaimedJobs
+        claimedJobIds = jobsList.claimedJobs
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,6 +39,10 @@ class ClaimedJobsViewController: UITableViewController {
         return nil
     }
 
+    @IBAction func pickedUpOn(sender: UISwitch) {
+        // how to get corresponding job, set pickedUp to true, and reload table view.
+        
+    }
 
     // MARK: - Table view data source
 
@@ -47,14 +53,24 @@ class ClaimedJobsViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! ProgressCell
         let job = findJobWithId(claimedJobIds[indexPath.row])!
         
-        cell.address = job.pickup_address
-        cell.pickupWindow = job.pickup_available_time
-        cell.isPickedUp = false
-        return cell
+        if(!job.pickedUp){
+            let cell = tableView.dequeueReusableCellWithIdentifier(pickupCellIdentifier, forIndexPath: indexPath) as! ProgressCell
         
+        
+            cell.address = job.pickup_address
+            cell.pickupWindow = job.pickup_available_time
+            cell.isPickedUp = job.pickedUp
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCellWithIdentifier(deliveryCellIdentifier, forIndexPath: indexPath) as! DeliveryCell
+            
+            cell.isDelivered = job.delivered
+            cell.deliveryWindow = job.dropoff_available_time
+            cell.deliveryAddress = job.dropoff_address
+            return cell
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -70,8 +86,7 @@ class ClaimedJobsViewController: UITableViewController {
         let job = findJobWithId(claimedJobIds[indexPath.row])!
         
         claimedVC.jobSelected = job
-        claimedVC.navigationItem.title = job.item_name
-        claimedVC.showClaimButton = false
+        claimedVC.navigationItem.title = String(job.ID)
     }
 
 
