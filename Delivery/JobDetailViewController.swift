@@ -30,7 +30,7 @@ class JobDetailViewController: UIViewController {
     
     @IBAction func claimButtonPressed(sender: UIButton) {
         let claimedJobs = JobsList.jobsList
-        claimedJobs.addJob(jobSelected.ID)
+        claimedJobs.addJob(jobSelected)
         jobSelected.claimed = true // maybe unclaimedJobsList should be a database that's synced with server?
                                     // line doesn't seem to have a long term effect. jobSelected goes back to false when user closes app.
     }

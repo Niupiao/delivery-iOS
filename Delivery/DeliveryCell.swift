@@ -38,6 +38,14 @@ class DeliveryCell: UITableViewCell {
         }
     }
     
+    var switchTag: Int = 0 {
+        didSet {
+            if switchTag != oldValue {
+                deliverySwitch.tag = switchTag
+            }
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
