@@ -300,6 +300,7 @@
                                     <outlet property="deliveryAddressLabel" destination="5YW-sA-xUT" id="IGR-PO-Z8f"/>
                                     <outlet property="deliverySwitch" destination="afs-qB-1vZ" id="YtA-f4-4Qd"/>
                                     <outlet property="deliveryWindowLabel" destination="59M-ZT-an6" id="oN1-xh-Mql"/>
+                                    <segue destination="Ah7-4n-0Wa" kind="show" id="RRN-Fh-CBi"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
