@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Delivery/JobDetailViewController.swift"
-            timestampString = "456803194.342096"
+            timestampString = "456868835.996723"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "claimButtonPressed(_:)"
             landmarkType = "5">
          </BreakpointContent>
