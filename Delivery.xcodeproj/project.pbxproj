@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1C6DC6941B3C85930017632F /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 1C6DC6931B3C85930017632F /* Podfile */; };
+		1C6DC6961B3C87310017632F /* GoogleMapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6DC6951B3C87310017632F /* GoogleMapsViewController.swift */; };
 		1CCE6DE91B38B69600D0F5D2 /* JobsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCE6DE81B38B69600D0F5D2 /* JobsListViewController.swift */; };
 		1CCE6DEB1B38B7D700D0F5D2 /* JobDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCE6DEA1B38B7D700D0F5D2 /* JobDetailViewController.swift */; };
 		1CCE6DEF1B38FC9600D0F5D2 /* ClaimedJobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCE6DEE1B38FC9600D0F5D2 /* ClaimedJobsViewController.swift */; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		1C6DC6931B3C85930017632F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		1C6DC6951B3C87310017632F /* GoogleMapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapsViewController.swift; sourceTree = "<group>"; };
 		1CCE6DE81B38B69600D0F5D2 /* JobsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobsListViewController.swift; sourceTree = "<group>"; };
 		1CCE6DEA1B38B7D700D0F5D2 /* JobDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDetailViewController.swift; sourceTree = "<group>"; };
 		1CCE6DEE1B38FC9600D0F5D2 /* ClaimedJobsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClaimedJobsViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				1CCE6DEE1B38FC9600D0F5D2 /* ClaimedJobsViewController.swift */,
 				1CCE6DE81B38B69600D0F5D2 /* JobsListViewController.swift */,
 				1CCE6DF21B3917E400D0F5D2 /* LoginViewController.swift */,
+				1C6DC6951B3C87310017632F /* GoogleMapsViewController.swift */,
 				7E55C9D11B3879B300360876 /* Main.storyboard */,
 				7E55C9D41B3879B300360876 /* Images.xcassets */,
 				7E55C9D61B3879B300360876 /* LaunchScreen.xib */,
@@ -315,6 +318,7 @@
 				1CCE6DE91B38B69600D0F5D2 /* JobsListViewController.swift in Sources */,
 				1CCE6DEB1B38B7D700D0F5D2 /* JobDetailViewController.swift in Sources */,
 				7E55C9CC1B3879B300360876 /* AppDelegate.swift in Sources */,
+				1C6DC6961B3C87310017632F /* GoogleMapsViewController.swift in Sources */,
 				1CCE6DFF1B3A3A8C00D0F5D2 /* DeliveryCell.swift in Sources */,
 				7E55C9EE1B38873100360876 /* Jobs.swift in Sources */,
 				1CCE6DF91B39D8CA00D0F5D2 /* JobCell.swift in Sources */,
