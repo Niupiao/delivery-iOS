@@ -25,6 +25,7 @@ class JobsListViewController: UITableViewController, UITableViewDataSource {
         unclaimedJobs = jobsList.unclaimedJobs
     }
     
+    // makes sure data is updated after a user claims a job
     override func viewWillAppear(animated: Bool) {
         unclaimedJobs = jobsList.unclaimedJobs
         tableView.reloadData()
@@ -33,6 +34,11 @@ class JobsListViewController: UITableViewController, UITableViewDataSource {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    @IBAction func sortButtonPressed(sender: UIBarButtonItem) {
+        
     }
     
     // MARK: - Table view data source
