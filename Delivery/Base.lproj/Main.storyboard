@@ -82,6 +82,7 @@
                     <connections>
                         <segue destination="rS3-R9-Ivy" kind="relationship" relationship="viewControllers" id="95H-PL-NUR"/>
                         <segue destination="lVX-Bu-reR" kind="relationship" relationship="viewControllers" id="CHw-h0-Rgu"/>
+                        <segue destination="BBU-3Z-30v" kind="relationship" relationship="viewControllers" id="uSE-4g-yGf"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="748-37-Amn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -321,6 +322,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="udx-uf-jKX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="209" y="-823"/>
+        </scene>
+        <!--Google Maps-->
+        <scene sceneID="TC6-8t-nco">
+            <objects>
+                <viewController title="Google Maps" id="BBU-3Z-30v" customClass="GoogleMapsViewController" customModule="Delivery" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qHU-KC-d8m"/>
+                        <viewControllerLayoutGuide type="bottom" id="BWW-pt-wH9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hpb-sN-lGK">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="search" id="2er-r8-eF0"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jiu-si-oOW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1117" y="-1522"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="i0l-Vf-GKh">
@@ -791,6 +811,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="WZN-9Y-1aB"/>
-        <segue reference="3Ri-wv-IQ8"/>
+        <segue reference="CHw-h0-Rgu"/>
     </inferredMetricsTieBreakers>
 </document>
