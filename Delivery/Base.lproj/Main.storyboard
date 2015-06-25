@@ -321,11 +321,11 @@
             </objects>
             <point key="canvasLocation" x="209" y="-823"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Claimed Jobs-->
         <scene sceneID="i0l-Vf-GKh">
             <objects>
                 <navigationController id="lVX-Bu-reR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="featured" id="c6S-VL-7mL"/>
+                    <tabBarItem key="tabBarItem" title="Claimed Jobs" id="c6S-VL-7mL"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Qgw-bW-YJD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -739,7 +739,7 @@
         <image name="cowhead" width="60" height="67"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gB1-HP-oBg"/>
         <segue reference="aEo-mb-UVo"/>
+        <segue reference="gB1-HP-oBg"/>
     </inferredMetricsTieBreakers>
 </document>
