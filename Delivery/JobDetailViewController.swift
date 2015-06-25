@@ -47,6 +47,7 @@ class JobDetailViewController: UIViewController {
             deliveryWindowLabel.text = jobSelected.dropoff_available_time
             buyerNameLabel.text = jobSelected.dropoff_name
             buyerPhoneLabel.text = jobSelected.dropoff_phone
+            
         }
         
     }
