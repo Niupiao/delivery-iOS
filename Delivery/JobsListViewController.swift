@@ -10,18 +10,19 @@ import UIKit
 
 class JobsListViewController: UITableViewController, UITableViewDataSource {
     
-    var unclaimedJobs: JobsList!
-    var jobsList: [Job]!
-    let unclaimedCellIdentifier = "UnclaimedJobsCell"
+    var jobsList: JobsList!
+    var unclaimedJobs: [Job]!
+    let cellIdentifier = "JobCell"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 44
         // right thing to do here would be to get jobsList from server and assign it to unclaimedJobs
-        JobsList.jobsList.unclaimedJobs = [Job(identifier: 1), Job(identifier: 2)]
-        jobsList = JobsList.jobsList.unclaimedJobs
+        jobsList = JobsList.jobsList
+        if jobsList.unclaimedJobs.isEmpty {
+            jobsList.unclaimedJobs = [Job(identifier: 1), Job(identifier: 2),Job(identifier: 3), Job(identifier: 4)]
+        }
+        unclaimedJobs = jobsList.unclaimedJobs
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,19 +34,19 @@ class JobsListViewController: UITableViewController, UITableViewDataSource {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        return jobsList.count
+        return unclaimedJobs.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier(unclaimedCellIdentifier, forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! JobCell
         
-        cell.textLabel!.text = String(jobsList[indexPath.row].ID)
-        cell.detailTextLabel!.text = jobsList[indexPath.row].pickup_address
+        cell.distance = "7 miles"
+        cell.time = "2-4pm"
+        cell.bounty = "7 tug"
         
         return cell
         
     }
-    
         
     // MARK: Segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -53,8 +54,7 @@ class JobsListViewController: UITableViewController, UITableViewDataSource {
             let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)!
             let jobVC = segue.destinationViewController as! JobDetailViewController
         
-            jobVC.jobSelected = jobsList[indexPath.row]
-            jobVC.navigationItem.title = jobsList[indexPath.row].item_name
-            jobVC.showClaimButton = true
+            jobVC.jobSelected = unclaimedJobs[indexPath.row]
+            jobVC.navigationItem.title = String(unclaimedJobs[indexPath.row].ID)
     }
 }

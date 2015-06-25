@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Delivery/Jobs.swift"
-            timestampString = "456715848.768757"
+            timestampString = "456857448.555518"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "JobsList"
             landmarkType = "3">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Delivery/JobDetailViewController.swift"
-            timestampString = "456717865.197786"
+            timestampString = "456883309.569254"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "claimButtonPressed(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,12 +42,231 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Delivery/JobsListViewController.swift"
-            timestampString = "456721098.409603"
+            timestampString = "456804531.004584"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
             landmarkName = "tableView(_:numberOfRowsInSection:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Delivery/JobCell.swift"
+            timestampString = "456786465.651386"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "JobCell"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Delivery.JobCell.timeLabel.getter : weak Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UILabel&gt;"
+                  moduleName = "Delivery"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/modsoussi/Desktop/CS/NiuPiao/iOS%20App/Delivery/Delivery/JobCell.swift"
+                  timestampString = "456787884.336098"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Delivery.JobCell.timeLabel.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UILabel&gt;"
+                  moduleName = "Delivery"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/modsoussi/Desktop/CS/NiuPiao/iOS%20App/Delivery/Delivery/JobCell.swift"
+                  timestampString = "456787884.336262"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Delivery.JobCell.timeLabel.materializeForSet : weak Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UILabel&gt;"
+                  moduleName = "Delivery"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/modsoussi/Desktop/CS/NiuPiao/iOS%20App/Delivery/Delivery/JobCell.swift"
+                  timestampString = "456787884.336364"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Delivery.JobCell.init (Delivery.JobCell.Type)(style : C.UITableViewCellStyle, reuseIdentifier : Swift.Optional&lt;Swift.String&gt;) -&gt; Delivery.JobCell"
+                  moduleName = "Delivery"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/modsoussi/Desktop/CS/NiuPiao/iOS%20App/Delivery/Delivery/JobCell.swift"
+                  timestampString = "456787884.336466"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "159">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Delivery.JobCell.init (Delivery.JobCell.Type)(coder : ObjectiveC.NSCoder) -&gt; Delivery.JobCell"
+                  moduleName = "Delivery"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/modsoussi/Desktop/CS/NiuPiao/iOS%20App/Delivery/Delivery/JobCell.swift"
+                  timestampString = "456787884.336563"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "14"
+                  endingLineNumber = "14"
+                  offsetFromSymbolStart = "85">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Delivery/JobCell.swift"
+            timestampString = "456787883.500617"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "JobCell"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Delivery.JobCell.distanceLabel.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UILabel&gt;"
+                  moduleName = "Delivery"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/modsoussi/Desktop/CS/NiuPiao/iOS%20App/Delivery/Delivery/JobCell.swift"
+                  timestampString = "456787890.046474"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Delivery.JobCell.distanceLabel.materializeForSet : weak Swift.ImplicitlyUnwrappedOptional&lt;ObjectiveC.UILabel&gt;"
+                  moduleName = "Delivery"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/modsoussi/Desktop/CS/NiuPiao/iOS%20App/Delivery/Delivery/JobCell.swift"
+                  timestampString = "456787890.046644"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Delivery.JobCell.init (Delivery.JobCell.Type)(style : C.UITableViewCellStyle, reuseIdentifier : Swift.Optional&lt;Swift.String&gt;) -&gt; Delivery.JobCell"
+                  moduleName = "Delivery"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/modsoussi/Desktop/CS/NiuPiao/iOS%20App/Delivery/Delivery/JobCell.swift"
+                  timestampString = "456787890.04679"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "54">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Delivery.JobCell.init (Delivery.JobCell.Type)(coder : ObjectiveC.NSCoder) -&gt; Delivery.JobCell"
+                  moduleName = "Delivery"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/modsoussi/Desktop/CS/NiuPiao/iOS%20App/Delivery/Delivery/JobCell.swift"
+                  timestampString = "456787890.046941"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Delivery/JobCell.swift"
+            timestampString = "456788025.69285"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "awakeFromNib()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Delivery/JobsListViewController.swift"
+            timestampString = "456806540.708894"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Delivery/ClaimedJobsViewController.swift"
+            timestampString = "456858305.348104"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "tableView(_:cellForRowAtIndexPath:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

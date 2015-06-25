@@ -8,18 +8,20 @@
 
 import UIKit
 
-class ClaimedJobsViewController: UITableViewController {
+class ClaimedJobsViewController: UITableViewController, UITableViewDataSource {
     
-    let claimedCellIdentifier = "ClaimedJobsCell"
+    let pickupCellIdentifier = "ProgressCell"
+    let deliveryCellIdentifier = "DeliveryCell"
     var jobsList: JobsList!
-    var claimedJobIds: [Int]!
+    var claimedJobs: [Job]!
     var unclaimedJobs: [Job]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         jobsList = JobsList.jobsList
         unclaimedJobs = jobsList.unclaimedJobs
+        claimedJobs = jobsList.claimedJobs
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,16 +29,12 @@ class ClaimedJobsViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    private func findJobWithId(jobId: Int) -> Job? {
-        var job = Job()
-        for job in unclaimedJobs {
-            if job.ID == jobId {
-                return job
-            }
-        }
-        return nil
+    @IBAction func pickedUpOn(sender: UISwitch) {
+        // how to get corresponding job, set pickedUp to true, and reload table view.
+        let job = claimedJobs[sender.tag]
+        job.pickedUp = true
+        tableView.reloadData()
     }
-
 
     // MARK: - Table view data source
 
@@ -47,18 +45,31 @@ class ClaimedJobsViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(claimedCellIdentifier, forIndexPath: indexPath) as! UITableViewCell
-        let job = findJobWithId(claimedJobIds[indexPath.row])!
+        let job = claimedJobs[indexPath.row]
         
-        cell.textLabel!.text = String(job.ID)
-        cell.detailTextLabel!.text = job.expiration_time
-        return cell
+        if(!job.pickedUp){
+            let cell = tableView.dequeueReusableCellWithIdentifier(pickupCellIdentifier, forIndexPath: indexPath) as! ProgressCell
         
+            
+            cell.address = job.pickup_address
+            cell.pickupWindow = job.pickup_available_time
+            cell.isPickedUp = job.pickedUp
+            cell.switchTag = indexPath.row
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCellWithIdentifier(deliveryCellIdentifier, forIndexPath: indexPath) as! DeliveryCell
+            
+            cell.isDelivered = job.delivered
+            cell.deliveryWindow = job.dropoff_available_time
+            cell.deliveryAddress = job.dropoff_address
+            cell.switchTag = indexPath.row
+            return cell
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        claimedJobIds = JobsList.jobsList.claimedJobs
+        claimedJobs = JobsList.jobsList.claimedJobs
         tableView.reloadData()
     }
     
@@ -66,11 +77,10 @@ class ClaimedJobsViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)!
         let claimedVC = segue.destinationViewController as! JobDetailViewController
-        let job = findJobWithId(claimedJobIds[indexPath.row])!
+        let job = claimedJobs[indexPath.row]
         
         claimedVC.jobSelected = job
-        claimedVC.navigationItem.title = job.item_name
-        claimedVC.showClaimButton = false
+        claimedVC.navigationItem.title = String(job.ID)
     }
 
 

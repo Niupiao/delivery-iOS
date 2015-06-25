@@ -8,7 +8,8 @@
 
 import UIKit
 
-class Job: Printable {
+class Job: Printable, Equatable {
+    
     var ID = 10;
     var pickup_address = "Seller Address";
     var pickup_available_time = "All the time";
@@ -27,6 +28,8 @@ class Job: Printable {
     var item_quantity = 1;
     
     var claimed = false;
+    var pickedUp = false
+    var delivered = false
     
     var description: String {
         return "Pickup address: \(pickup_address)\nPickup name: \(pickup_name)\nPickup phone#: \(pickup_phone)"
@@ -41,6 +44,10 @@ class Job: Printable {
     }
 }
 
+func ==(lhs: Job, rhs: Job) -> Bool {
+    return rhs.ID == lhs.ID
+}
+
 class JobsList: NSObject {
     
     class var jobsList: JobsList {
@@ -51,35 +58,31 @@ class JobsList: NSObject {
     }
     
     // store jobs by IDs
-    private(set) var claimedJobs: [Int]
+    private(set) var claimedJobs: [Job]
     var unclaimedJobs: [Job]
     
     override init() {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let storedClaimedJobs = defaults.objectForKey("claimedJobs") as? [Int]
-        let storedUnclaimedJobs = defaults.objectForKey("unclaimedJobs") as? [Job]
-        claimedJobs = storedClaimedJobs != nil ? storedClaimedJobs! : []
-        unclaimedJobs = storedUnclaimedJobs != nil ? storedUnclaimedJobs! : []
+        // get stuff from database here?
+        claimedJobs = [] //local
+        unclaimedJobs = [] //gets updated often
     }
     
-    func addJob(targetJobId: Int){
-        if(!contains(claimedJobs, targetJobId)){
-            claimedJobs.append(targetJobId);
-            saveClaimedJobs()
+    func addJob(targetJob: Job){
+        if(!contains(claimedJobs, targetJob)){
+            claimedJobs.append(targetJob);
+            //saveClaimedJobs()
         }
     }
     
-    func removeJob(targetJobId: Int){
-        if let jobIndex = find(claimedJobs, targetJobId) {
+    func removeJob(targetJob: Job){
+        if let jobIndex = find(claimedJobs, targetJob) {
             claimedJobs.removeAtIndex(jobIndex)
-            saveClaimedJobs()
+            //saveClaimedJobs()
         }
     }
     
     func saveClaimedJobs(){
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setObject(claimedJobs, forKey: "claimedJobs")
-        defaults.synchronize()
+        // save to database
     }
     
 }
