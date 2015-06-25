@@ -12,7 +12,8 @@ class ProgressCell: UITableViewCell {
 
     @IBOutlet weak var pickupTimeLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
-    @IBOutlet weak var pickupSwitch: UISwitch!
+    @IBOutlet weak var pickupButton: UIButton!
+    
     
     var pickupWindow: String = "" {
         didSet {
@@ -30,18 +31,10 @@ class ProgressCell: UITableViewCell {
         }
     }
     
-    var isPickedUp: Bool = false {
+    var pickUpButtonTag: Int = 0 {
         didSet {
-            if isPickedUp != oldValue {
-                pickupSwitch.setOn(isPickedUp, animated: true)
-            }
-        }
-    }
-    
-    var switchTag: Int = 0 {
-        didSet {
-            if switchTag != oldValue {
-                pickupSwitch.tag = switchTag
+            if pickUpButtonTag != oldValue {
+                pickupButton.tag = pickUpButtonTag
             }
         }
     }
@@ -49,9 +42,6 @@ class ProgressCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
-        pickupSwitch.setOn(false, animated: true)
-        
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

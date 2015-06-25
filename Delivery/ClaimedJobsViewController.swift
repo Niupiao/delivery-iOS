@@ -24,16 +24,14 @@ class ClaimedJobsViewController: UITableViewController, UITableViewDataSource {
         claimedJobs = jobsList.claimedJobs
     }
 
+    @IBAction func pickedUpPressed(sender: UIButton) {
+        claimedJobs[sender.tag].pickedUp = true
+        tableView.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func pickedUpOn(sender: UISwitch) {
-        // how to get corresponding job, set pickedUp to true, and reload table view.
-        let job = claimedJobs[sender.tag]
-        job.pickedUp = true
-        tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -53,16 +51,14 @@ class ClaimedJobsViewController: UITableViewController, UITableViewDataSource {
             
             cell.address = job.pickup_address
             cell.pickupWindow = job.pickup_available_time
-            cell.isPickedUp = job.pickedUp
-            cell.switchTag = indexPath.row
+            cell.pickUpButtonTag = indexPath.row
             return cell
         } else {
             let cell = tableView.dequeueReusableCellWithIdentifier(deliveryCellIdentifier, forIndexPath: indexPath) as! DeliveryCell
             
-            cell.isDelivered = job.delivered
             cell.deliveryWindow = job.dropoff_available_time
             cell.deliveryAddress = job.dropoff_address
-            cell.switchTag = indexPath.row
+            cell.deliveryButtonTag = indexPath.row
             return cell
         }
     }

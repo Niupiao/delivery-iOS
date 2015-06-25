@@ -64,7 +64,7 @@ class JobsList: NSObject {
     override init() {
         // get stuff from database here?
         claimedJobs = [] //local
-        unclaimedJobs = [] //gets updated often
+        unclaimedJobs = [] //updates sent to server often
     }
     
     func addJob(targetJob: Job){
@@ -78,6 +78,12 @@ class JobsList: NSObject {
         if let jobIndex = find(claimedJobs, targetJob) {
             claimedJobs.removeAtIndex(jobIndex)
             //saveClaimedJobs()
+        }
+    }
+    
+    func removeUnclaimedJob(targetJob: Job){
+        if let jobIndex = find(unclaimedJobs, targetJob){
+            unclaimedJobs.removeAtIndex(jobIndex)
         }
     }
     

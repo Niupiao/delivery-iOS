@@ -12,7 +12,7 @@ class DeliveryCell: UITableViewCell {
 
     @IBOutlet weak var deliveryWindowLabel: UILabel!
     @IBOutlet weak var deliveryAddressLabel: UILabel!
-    @IBOutlet weak var deliverySwitch: UISwitch!
+    @IBOutlet weak var deliveryButton: UIButton!
     
     var deliveryWindow: String = "" {
         didSet {
@@ -30,18 +30,10 @@ class DeliveryCell: UITableViewCell {
         }
     }
     
-    var isDelivered: Bool = false {
+    var deliveryButtonTag: Int = 0 {
         didSet {
-            if isDelivered != oldValue {
-                deliverySwitch.setOn(isDelivered, animated: true)
-            }
-        }
-    }
-    
-    var switchTag: Int = 0 {
-        didSet {
-            if switchTag != oldValue {
-                deliverySwitch.tag = switchTag
+            if deliveryButtonTag != oldValue {
+                deliveryButton.tag = deliveryButtonTag
             }
         }
     }
@@ -49,8 +41,6 @@ class DeliveryCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        
-        deliverySwitch.setOn(isDelivered, animated: true)
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
