@@ -497,6 +497,7 @@
                                 </state>
                                 <connections>
                                     <action selector="claimButtonPressed:" destination="Ah7-4n-0Wa" eventType="touchUpInside" id="EZk-og-fGu"/>
+                                    <segue destination="v2k-jC-RbW" kind="show" id="gB1-HP-oBg"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EP6-EG-nw3">
@@ -732,6 +733,7 @@
         <image name="cowhead" width="60" height="67"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="gB1-HP-oBg"/>
         <segue reference="aEo-mb-UVo"/>
     </inferredMetricsTieBreakers>
 </document>

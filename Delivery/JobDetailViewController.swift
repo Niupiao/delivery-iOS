@@ -32,7 +32,7 @@ class JobDetailViewController: UIViewController {
         super.viewDidLoad()
         
         if jobSelected != nil {
-            claimButton.hidden = jobSelected.claimed
+            //claimButton.hidden = jobSelected.claimed
             
             // filling out pickup info
             pickupDistanceLabel.text = "7 miles"
@@ -61,5 +61,9 @@ class JobDetailViewController: UIViewController {
         claimedJobs.addJob(jobSelected)
         jobSelected.claimed = true // maybe unclaimedJobsList should be a database that's synced with server?
                                     // line doesn't seem to have a long term effect. jobSelected goes back to false when user closes app.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        claimButton.hidden = jobSelected.claimed
     }
 }
