@@ -15,8 +15,8 @@ class GoogleMapsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        var camera = GMSCameraPosition.cameraWithLatitude(-33.868,
-            longitude:151.2086, zoom:6)
+        var camera = GMSCameraPosition.cameraWithLatitude(47.92,
+            longitude:106.92, zoom:6)
         var mapView = GMSMapView.mapWithFrame(CGRectZero, camera:camera)
         
         var marker = GMSMarker()

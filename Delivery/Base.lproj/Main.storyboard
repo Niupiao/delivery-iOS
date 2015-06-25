@@ -810,7 +810,7 @@
         <image name="cowhead" width="60" height="67"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WZN-9Y-1aB"/>
         <segue reference="CHw-h0-Rgu"/>
+        <segue reference="aEo-mb-UVo"/>
     </inferredMetricsTieBreakers>
 </document>
