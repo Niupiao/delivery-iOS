@@ -23,6 +23,10 @@ class JobsListViewController: UITableViewController, UITableViewDataSource {
             jobsList.unclaimedJobs = [Job(identifier: 1), Job(identifier: 2),Job(identifier: 3), Job(identifier: 4)]
         }
         unclaimedJobs = jobsList.unclaimedJobs
+        for job in unclaimedJobs {
+            job.wage = Double(arc4random_uniform(16))
+            job.pickup_distance = Int(arc4random_uniform(32))
+        }
     }
     
     // makes sure data is updated after a user claims a job
@@ -38,7 +42,27 @@ class JobsListViewController: UITableViewController, UITableViewDataSource {
     
     
     @IBAction func sortButtonPressed(sender: UIBarButtonItem) {
+        var sortByWage: Bool = false
+        var sortByDistance: Bool = false
+        var sortByTimeLeft: Bool =  false
+        let controller = UIAlertController(title: "Sort", message: "Choose a sorting method", preferredStyle: .ActionSheet)
         
+        let byWage = UIAlertAction(title: "By Wage", style: UIAlertActionStyle.Default, handler: { action in
+            self.unclaimedJobs.sort() { $0.wage > $1.wage }
+            self.tableView.reloadData()
+        })
+        
+        let byDistance = UIAlertAction(title: "By Distance", style: UIAlertActionStyle.Default, handler: { action in
+            self.unclaimedJobs.sort() { $0.pickup_distance < $1.pickup_distance }
+            self.tableView.reloadData()
+        })
+        
+        let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
+        
+        controller.addAction(byWage)
+        controller.addAction(byDistance)
+        controller.addAction(cancel)
+        presentViewController(controller, animated: true, completion: nil)
     }
     
     // MARK: - Table view data source
@@ -51,9 +75,9 @@ class JobsListViewController: UITableViewController, UITableViewDataSource {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! JobCell
         
-        cell.distance = "7 miles"
+        cell.distance = String(format: "%i", unclaimedJobs[indexPath.row].pickup_distance)
         cell.time = "2-4pm"
-        cell.wage = "7 tgk"
+        cell.wage = String(format:"%.0f", unclaimedJobs[indexPath.row].wage)
         
         return cell
         
