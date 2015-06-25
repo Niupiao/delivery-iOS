@@ -12,7 +12,7 @@ class JobCell: UITableViewCell {
     
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var bountyLabel: UILabel!
+    @IBOutlet weak var wageLabel: UILabel!
     
     
     var distance: String  = "" {
@@ -23,10 +23,10 @@ class JobCell: UITableViewCell {
         }
     }
     
-    var bounty: String = "" {
+    var wage: String = "" {
         didSet {
-            if bounty != oldValue {
-                bountyLabel.text = bounty
+            if wage != oldValue {
+                wageLabel.text = wage
             }
         }
     }

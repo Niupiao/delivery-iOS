@@ -24,6 +24,11 @@ class JobsListViewController: UITableViewController, UITableViewDataSource {
         }
         unclaimedJobs = jobsList.unclaimedJobs
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        unclaimedJobs = jobsList.unclaimedJobs
+        tableView.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -42,7 +47,7 @@ class JobsListViewController: UITableViewController, UITableViewDataSource {
         
         cell.distance = "7 miles"
         cell.time = "2-4pm"
-        cell.bounty = "7 tug"
+        cell.wage = "7 tgk"
         
         return cell
         
