@@ -14,6 +14,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var keyField: UITextField!
     
     let httpHelper = HTTPHelper()
+    let defaults = NSUserDefaults.standardUserDefaults()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,8 +38,28 @@ class LoginViewController: UIViewController {
     @IBAction func logginButtonPressed(sender: UIButton) {
         keyField.resignFirstResponder()
         
+        if keyField.text.isEmpty {
+            var alert = UIAlertView()
+            alert.title = "You must enter a key."
+            alert.addButtonWithTitle("Got it!")
+            alert.show()
+            return
+        }
+        
         if !keyField.text.isEmpty {
             loginRequest(keyField.text)
+            
+            if defaults.objectForKey("userLoggedIn?") != nil {
+                let navController = self.storyboard?.instantiateViewControllerWithIdentifier("navigator") as! UIViewController
+                self.presentViewController(navController, animated: true, completion: nil)
+                
+            } else {
+                var alert = UIAlertView()
+                alert.title = "Invalid Key."
+                alert.addButtonWithTitle("Try Again.")
+                alert.show()
+                return
+            }
         }
     }
     
@@ -71,7 +92,6 @@ class LoginViewController: UIViewController {
     }
     
     func updateUserLoggedInFlag(){
-        let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setObject("loggedIn", forKey: "userLoggedIn?")
         defaults.synchronize()
     }

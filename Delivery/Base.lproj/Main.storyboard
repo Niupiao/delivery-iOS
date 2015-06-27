@@ -27,7 +27,6 @@
                                 </state>
                                 <connections>
                                     <action selector="logginButtonPressed:" destination="mEu-Zu-KCA" eventType="touchUpInside" id="F3l-Id-6BF"/>
-                                    <segue destination="1u2-XG-Dh1" kind="show" identifier="showTabBarView" id="ki4-kV-1O2"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Key" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y9h-az-uba">
