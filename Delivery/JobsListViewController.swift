@@ -13,9 +13,21 @@ class JobsListViewController: UITableViewController, UITableViewDataSource {
     var jobsList: JobsList!
     var unclaimedJobs: [Job]!
     let cellIdentifier = "JobCell"
+    var accessKey: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if defaults.objectForKey("userLoggedIn?") == nil {
+            if let loginController = self.storyboard?.instantiateViewControllerWithIdentifier("login") as? UIViewController {
+                self.presentViewController(loginController, animated: true, completion: nil)
+            }
+        } else {
+            let keychainWrapper = KeychainWrapper()
+            accessKey = keychainWrapper.myObjectForKey(kSecValueData) as! String
+        }
+        
         
         // right thing to do here would be to get jobsList from server and assign it to unclaimedJobs
         jobsList = JobsList.jobsList
