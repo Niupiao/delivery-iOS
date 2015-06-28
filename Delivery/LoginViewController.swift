@@ -39,17 +39,14 @@ class LoginViewController: UIViewController {
         keyField.resignFirstResponder()
         
         if keyField.text.isEmpty {
-            var alert = UIAlertView()
-            alert.title = "You must enter a key."
-            alert.addButtonWithTitle("Got it!")
-            alert.show()
+          displayAlertMessage("Key Missing", alertDescription: "You must enter a key")
             return
         }
         
         if !keyField.text.isEmpty {
             loginRequest(keyField.text)
             
-            if defaults.objectForKey("userLoggedIn?") != nil {
+            /*if defaults.objectForKey("userLoggedIn?") != nil {
                 let navController = self.storyboard?.instantiateViewControllerWithIdentifier("navigator") as! UIViewController
                 self.presentViewController(navController, animated: true, completion: nil)
                 
@@ -59,7 +56,7 @@ class LoginViewController: UIViewController {
                 alert.addButtonWithTitle("Try Again.")
                 alert.show()
                 return
-            }
+            }*/
         }
     }
     
@@ -70,12 +67,19 @@ class LoginViewController: UIViewController {
             if error != nil {
                 let errorMessage = self.httpHelper.getErrorMessage(error)
                 self.displayAlertMessage("Error", alertDescription: errorMessage as String)
+                
+                return
             }
             
             var error:NSError?
             let responseDict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &error) as! NSDictionary
-            self.updateUserLoggedInFlag()
-            self.saveKeyInKeychain(key)
+            if let keyInvalid = responseDict["error"] as? String {
+                self.displayAlertMessage("Invalid key", alertDescription: "The key you've entered is invalid.")
+                self.keyField.text = ""
+            } else {
+                self.updateUserLoggedInFlag()
+                self.saveKeyInKeychain(key)
+            }
         })
     }
     

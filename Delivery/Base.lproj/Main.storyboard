@@ -72,7 +72,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="xlr-ik-yJS">
             <objects>
-                <tabBarController id="1u2-XG-Dh1" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="navigator" id="1u2-XG-Dh1" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Bx5-85-Hom">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>

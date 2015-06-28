@@ -14,17 +14,11 @@ struct HTTPHelper {
     
     func buildRequest(path: String!, method: String, key: String!) -> NSMutableURLRequest {
         // 1. Create request URL from path
-        let requestURL = NSURL(string: "\(HTTPHelper.BASE_URL)/\(path)")!
+        let requestURL = NSURL(string: "\(HTTPHelper.BASE_URL)/\(path)?format=json&key=\(key)")!
         var request = NSMutableURLRequest(URL: requestURL)
         
         // 2. set http method and content type
         request.HTTPMethod = method
-        
-        //setting format to json
-        request.addValue("json", forHTTPHeaderField: "format")
-        
-        // 3. adding access key to key field
-        request.addValue(key, forHTTPHeaderField: "key")
 
         return request
     }
