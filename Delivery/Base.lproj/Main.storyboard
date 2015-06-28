@@ -29,8 +29,8 @@
                                     <action selector="logginButtonPressed:" destination="mEu-Zu-KCA" eventType="touchUpInside" id="F3l-Id-6BF"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Key" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y9h-az-uba">
-                                <rect key="frame" x="166" y="285" width="268.5" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Key" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y9h-az-uba">
+                                <rect key="frame" x="166" y="285" width="269" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
@@ -38,29 +38,42 @@
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Key to Login:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1zf-3y-cSt">
-                                <rect key="frame" x="227" y="229" width="146.5" height="20.5"/>
+                                <rect key="frame" x="227" y="229" width="147" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="bVi-Nf-FOf">
+                                <rect key="frame" x="290" y="385" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="nX2-cr-f97" firstAttribute="top" secondItem="bVi-Nf-FOf" secondAttribute="bottom" constant="195" id="44t-jD-w4f"/>
                             <constraint firstItem="wYD-zH-pk9" firstAttribute="top" secondItem="Plm-yt-ypt" secondAttribute="bottom" constant="46" id="6GR-1g-of6"/>
                             <constraint firstAttribute="centerX" secondItem="Y9h-az-uba" secondAttribute="centerX" id="9yG-Jp-xEw"/>
                             <constraint firstItem="Y9h-az-uba" firstAttribute="leading" secondItem="1zf-3y-cSt" secondAttribute="trailing" constant="-208" id="Hga-PK-op2"/>
                             <constraint firstItem="1zf-3y-cSt" firstAttribute="top" secondItem="wYD-zH-pk9" secondAttribute="bottom" constant="96" id="OsI-b5-Ujp"/>
                             <constraint firstAttribute="centerX" secondItem="rXy-k1-XgT" secondAttribute="centerX" id="W6o-dk-EWR"/>
+                            <constraint firstItem="bVi-Nf-FOf" firstAttribute="top" secondItem="Y9h-az-uba" secondAttribute="bottom" constant="70" id="WsE-uP-3j8"/>
                             <constraint firstItem="Y9h-az-uba" firstAttribute="top" secondItem="1zf-3y-cSt" secondAttribute="bottom" constant="35.5" id="Ytx-q3-XfJ"/>
+                            <constraint firstItem="bVi-Nf-FOf" firstAttribute="centerX" secondItem="rXy-k1-XgT" secondAttribute="centerX" id="eVc-jP-B6S"/>
                             <constraint firstAttribute="centerX" secondItem="wYD-zH-pk9" secondAttribute="centerX" id="fDy-Jr-LWM"/>
                             <constraint firstAttribute="centerX" secondItem="1zf-3y-cSt" secondAttribute="centerX" constant="-0.5" id="gzG-KA-qrd"/>
+                            <constraint firstItem="bVi-Nf-FOf" firstAttribute="centerY" secondItem="rXy-k1-XgT" secondAttribute="centerY" id="oJA-o8-hTG"/>
                             <constraint firstItem="rXy-k1-XgT" firstAttribute="top" secondItem="Y9h-az-uba" secondAttribute="bottom" constant="65" id="rZa-8E-Zdq"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="44t-jD-w4f"/>
+                            </mask>
+                        </variation>
                         <connections>
                             <action selector="backgroundTap:" destination="mEu-Zu-KCA" eventType="touchDown" id="H0G-u1-2er"/>
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="bVi-Nf-FOf" id="N6V-tg-M7j"/>
                         <outlet property="keyField" destination="Y9h-az-uba" id="IZa-SO-fkd"/>
                         <outlet property="loginButton" destination="rXy-k1-XgT" id="lcu-pD-nDs"/>
                     </connections>

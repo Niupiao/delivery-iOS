@@ -12,6 +12,7 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var keyField: UITextField!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     let httpHelper = HTTPHelper()
     let defaults = NSUserDefaults.standardUserDefaults()
@@ -20,6 +21,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        activityIndicator.hidden = true
     }
     
     override func didReceiveMemoryWarning() {
@@ -45,7 +47,9 @@ class LoginViewController: UIViewController {
         
         if !keyField.text.isEmpty {
             loginRequest(keyField.text)
-            
+            loginButton.hidden = true
+            activityIndicator.hidden = false
+            activityIndicator.startAnimating()
             /*if defaults.objectForKey("userLoggedIn?") != nil {
                 let navController = self.storyboard?.instantiateViewControllerWithIdentifier("navigator") as! UIViewController
                 self.presentViewController(navController, animated: true, completion: nil)
@@ -64,6 +68,7 @@ class LoginViewController: UIViewController {
         let httpRequest = httpHelper.buildRequest("login", method: "GET", key: key)
         httpHelper.sendRequest(httpRequest, completion: {(data:NSData!, error:NSError!) in
             // Display error
+            self.activityIndicator.stopAnimating()
             if error != nil {
                 let errorMessage = self.httpHelper.getErrorMessage(error)
                 self.displayAlertMessage("Error", alertDescription: errorMessage as String)
@@ -75,7 +80,8 @@ class LoginViewController: UIViewController {
             let responseDict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &error) as! NSDictionary
             if let keyInvalid = responseDict["error"] as? String {
                 self.displayAlertMessage("Invalid key", alertDescription: "The key you've entered is invalid.")
-                self.keyField.text = ""
+                self.activityIndicator.hidden = true
+                self.loginButton.hidden = false
             } else {
                 self.updateUserLoggedInFlag()
                 self.saveKeyInKeychain(key)
