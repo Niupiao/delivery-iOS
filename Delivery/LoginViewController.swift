@@ -50,17 +50,6 @@ class LoginViewController: UIViewController {
             loginButton.hidden = true
             activityIndicator.hidden = false
             activityIndicator.startAnimating()
-            /*if defaults.objectForKey("userLoggedIn?") != nil {
-                let navController = self.storyboard?.instantiateViewControllerWithIdentifier("navigator") as! UIViewController
-                self.presentViewController(navController, animated: true, completion: nil)
-                
-            } else {
-                var alert = UIAlertView()
-                alert.title = "Invalid Key."
-                alert.addButtonWithTitle("Try Again.")
-                alert.show()
-                return
-            }*/
         }
     }
     
@@ -79,12 +68,15 @@ class LoginViewController: UIViewController {
             var error:NSError?
             let responseDict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &error) as! NSDictionary
             if let keyInvalid = responseDict["error"] as? String {
-                self.displayAlertMessage("Invalid key", alertDescription: "The key you've entered is invalid.")
+                self.displayAlertMessage("Invalid key", alertDescription: "The key you entered is invalid.")
                 self.activityIndicator.hidden = true
                 self.loginButton.hidden = false
             } else {
                 self.updateUserLoggedInFlag()
                 self.saveKeyInKeychain(key)
+                if let controller = self.storyboard?.instantiateViewControllerWithIdentifier("tabBarController") as? UIViewController {
+                    self.presentViewController(controller, animated: true, completion: nil)
+                }
             }
         })
     }
