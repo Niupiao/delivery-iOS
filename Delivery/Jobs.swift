@@ -11,13 +11,15 @@ import UIKit
 class Job: Printable, Equatable {
     
     var ID = 10;
-    var pickup_distance = 7
+    var deliveryInstruction: String = ""
+    
+    var pickup_distance = 0
     var pickup_address = "Seller Address"
     var pickup_available_time = "All the time"
     var pickup_name = "Foo"
     var pickup_phone = "111-111-1111"
     
-    var dropoff_distance = 7
+    var dropoff_distance = 0
     var dropoff_address = "Buyer Address"
     var dropoff_available_time = "Never"
     var dropoff_name = "Bar"
@@ -28,7 +30,7 @@ class Job: Printable, Equatable {
     var item_name = "item_name"
     var item_quantity = 1
     
-    var claimed = false;
+    var claimed = 0
     var pickedUp = false
     var delivered = false
     
@@ -59,8 +61,8 @@ class JobsList: NSObject {
     }
     
     // store jobs by IDs
-    private(set) var claimedJobs: [Job]
-    var unclaimedJobs: [Job]
+    var claimedJobs: Array<Job>
+    var unclaimedJobs: Array<Job>
     
     override init() {
         // get stuff from database here?
@@ -70,15 +72,15 @@ class JobsList: NSObject {
     
     func addJob(targetJob: Job){
         if(!contains(claimedJobs, targetJob)){
-            claimedJobs.append(targetJob);
-            //saveClaimedJobs()
+            claimedJobs.append(targetJob)
+            //saveClaimedJob()
         }
     }
     
     func removeJob(targetJob: Job){
         if let jobIndex = find(claimedJobs, targetJob) {
             claimedJobs.removeAtIndex(jobIndex)
-            //saveClaimedJobs()
+            //completeClaimedJob()
         }
     }
     

@@ -27,6 +27,11 @@ class JobDetailViewController: UIViewController {
     @IBOutlet weak var buyerPhoneLabel: UILabel!
     
     var jobSelected: Job!
+    var accessKey: String!
+    
+    let httpHelper = HTTPHelper()
+    let keychain = KeychainWrapper()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +55,7 @@ class JobDetailViewController: UIViewController {
             
         }
         
+        accessKey = keychain.myObjectForKey("v_Data") as! String
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,14 +63,31 @@ class JobDetailViewController: UIViewController {
     }
     
     @IBAction func claimButtonPressed(sender: UIButton) {
-        let jobs = JobsList.jobsList
-        jobs.addJob(jobSelected)
-        jobSelected.claimed = true // maybe unclaimedJobsList should be a database that's synced with server?
-                                    // line doesn't seem to have a long term effect. jobSelected goes back to false when user closes app.
-        jobs.removeUnclaimedJob(jobSelected)
+        claimJob(accessKey, deliveryId: jobSelected.ID)
     }
     
     override func viewWillAppear(animated: Bool) {
-        claimButton.hidden = jobSelected.claimed
+        claimButton.hidden = jobSelected.claimed == 1 ? true : false
+    }
+    
+    //MARK: - Server Communication
+    
+    func claimJob(key: String, deliveryId: Int){
+        let request = httpHelper.buildRequest("claim", method: "GET", key: key, deliveryId: deliveryId, status: nil)
+        httpHelper.sendRequest(request, completion: {(data:NSData!, error:NSError!) in
+            // Display error
+            if error != nil {
+                let errorMessage = self.httpHelper.getErrorMessage(error)
+                let alert = UIAlertView()
+                alert.title = "Error"
+                alert.message = errorMessage as String
+                alert.show()
+                
+                return
+            }
+            
+            var error:NSError?
+            let responseDict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &error) as! NSDictionary
+        })
     }
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C291B4F1B3F27EF003BD7D7 /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C291B4E1B3F27EF003BD7D7 /* KeychainWrapper.m */; };
+		1C291B521B3F5DED003BD7D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C291B501B3F5DED003BD7D7 /* Main.storyboard */; };
 		1C6DC6941B3C85930017632F /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 1C6DC6931B3C85930017632F /* Podfile */; };
 		1C6DC6961B3C87310017632F /* GoogleMapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6DC6951B3C87310017632F /* GoogleMapsViewController.swift */; };
 		1CCE6DE91B38B69600D0F5D2 /* JobsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCE6DE81B38B69600D0F5D2 /* JobsListViewController.swift */; };
@@ -16,8 +18,8 @@
 		1CCE6DF91B39D8CA00D0F5D2 /* JobCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCE6DF81B39D8CA00D0F5D2 /* JobCell.swift */; };
 		1CCE6DFB1B39FB7D00D0F5D2 /* ProgressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCE6DFA1B39FB7D00D0F5D2 /* ProgressCell.swift */; };
 		1CCE6DFF1B3A3A8C00D0F5D2 /* DeliveryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCE6DFE1B3A3A8C00D0F5D2 /* DeliveryCell.swift */; };
+		1CE473B01B3DF07600542D50 /* HTTPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CE473AF1B3DF07600542D50 /* HTTPHelper.swift */; };
 		7E55C9CC1B3879B300360876 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E55C9CB1B3879B300360876 /* AppDelegate.swift */; };
-		7E55C9D31B3879B300360876 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E55C9D11B3879B300360876 /* Main.storyboard */; };
 		7E55C9D51B3879B300360876 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E55C9D41B3879B300360876 /* Images.xcassets */; };
 		7E55C9D81B3879B300360876 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E55C9D61B3879B300360876 /* LaunchScreen.xib */; };
 		7E55C9E41B3879B300360876 /* DeliveryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E55C9E31B3879B300360876 /* DeliveryTests.swift */; };
@@ -48,8 +50,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1C6DC6931B3C85930017632F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		1C291B4C1B3F27EE003BD7D7 /* Delivery-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Delivery-Bridging-Header.h"; sourceTree = "<group>"; };
+		1C291B4D1B3F27EE003BD7D7 /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainWrapper.h; sourceTree = "<group>"; };
+		1C291B4E1B3F27EF003BD7D7 /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainWrapper.m; sourceTree = "<group>"; };
+		1C291B511B3F5DED003BD7D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1C6DC6931B3C85930017632F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		1C6DC6951B3C87310017632F /* GoogleMapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapsViewController.swift; sourceTree = "<group>"; };
+		1CAF8D2F1B423D7400C18FCE /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		1CCE6DE81B38B69600D0F5D2 /* JobsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobsListViewController.swift; sourceTree = "<group>"; };
 		1CCE6DEA1B38B7D700D0F5D2 /* JobDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDetailViewController.swift; sourceTree = "<group>"; };
 		1CCE6DEE1B38FC9600D0F5D2 /* ClaimedJobsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClaimedJobsViewController.swift; sourceTree = "<group>"; };
@@ -57,13 +64,13 @@
 		1CCE6DF81B39D8CA00D0F5D2 /* JobCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobCell.swift; sourceTree = "<group>"; };
 		1CCE6DFA1B39FB7D00D0F5D2 /* ProgressCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressCell.swift; sourceTree = "<group>"; };
 		1CCE6DFE1B3A3A8C00D0F5D2 /* DeliveryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliveryCell.swift; sourceTree = "<group>"; };
+		1CE473AF1B3DF07600542D50 /* HTTPHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPHelper.swift; sourceTree = "<group>"; };
 		437B7261E7DFAA7B121DC08A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		523EA86EE30160508A32573A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		7DA3A742354F3107E6B82311 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		7E55C9C61B3879B300360876 /* Delivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Delivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E55C9CA1B3879B300360876 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E55C9CB1B3879B300360876 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7E55C9D21B3879B300360876 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7E55C9D41B3879B300360876 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7E55C9D71B3879B300360876 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		7E55C9DD1B3879B300360876 /* DeliveryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DeliveryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +122,7 @@
 		7E55C9C81B3879B300360876 /* Delivery */ = {
 			isa = PBXGroup;
 			children = (
+				1CE473AF1B3DF07600542D50 /* HTTPHelper.swift */,
 				7E55C9CB1B3879B300360876 /* AppDelegate.swift */,
 				7E55C9ED1B38873100360876 /* Jobs.swift */,
 				1CCE6DF81B39D8CA00D0F5D2 /* JobCell.swift */,
@@ -125,10 +133,13 @@
 				1CCE6DE81B38B69600D0F5D2 /* JobsListViewController.swift */,
 				1CCE6DF21B3917E400D0F5D2 /* LoginViewController.swift */,
 				1C6DC6951B3C87310017632F /* GoogleMapsViewController.swift */,
-				7E55C9D11B3879B300360876 /* Main.storyboard */,
+				1C291B4D1B3F27EE003BD7D7 /* KeychainWrapper.h */,
+				1C291B4E1B3F27EF003BD7D7 /* KeychainWrapper.m */,
+				1C291B501B3F5DED003BD7D7 /* Main.storyboard */,
 				7E55C9D41B3879B300360876 /* Images.xcassets */,
 				7E55C9D61B3879B300360876 /* LaunchScreen.xib */,
 				7E55C9C91B3879B300360876 /* Supporting Files */,
+				1C291B4C1B3F27EE003BD7D7 /* Delivery-Bridging-Header.h */,
 			);
 			path = Delivery;
 			sourceTree = "<group>";
@@ -170,6 +181,7 @@
 		A5E9440128193C3D4D4304CF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1CAF8D2F1B423D7400C18FCE /* GLKit.framework */,
 				437B7261E7DFAA7B121DC08A /* libPods.a */,
 			);
 			name = Frameworks;
@@ -258,10 +270,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7E55C9D31B3879B300360876 /* Main.storyboard in Resources */,
 				7E55C9D81B3879B300360876 /* LaunchScreen.xib in Resources */,
 				1C6DC6941B3C85930017632F /* Podfile in Resources */,
 				7E55C9D51B3879B300360876 /* Images.xcassets in Resources */,
+				1C291B521B3F5DED003BD7D7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,7 +331,9 @@
 				1CCE6DEB1B38B7D700D0F5D2 /* JobDetailViewController.swift in Sources */,
 				7E55C9CC1B3879B300360876 /* AppDelegate.swift in Sources */,
 				1C6DC6961B3C87310017632F /* GoogleMapsViewController.swift in Sources */,
+				1C291B4F1B3F27EF003BD7D7 /* KeychainWrapper.m in Sources */,
 				1CCE6DFF1B3A3A8C00D0F5D2 /* DeliveryCell.swift in Sources */,
+				1CE473B01B3DF07600542D50 /* HTTPHelper.swift in Sources */,
 				7E55C9EE1B38873100360876 /* Jobs.swift in Sources */,
 				1CCE6DF91B39D8CA00D0F5D2 /* JobCell.swift in Sources */,
 			);
@@ -344,10 +358,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		7E55C9D11B3879B300360876 /* Main.storyboard */ = {
+		1C291B501B3F5DED003BD7D7 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				7E55C9D21B3879B300360876 /* Base */,
+				1C291B511B3F5DED003BD7D7 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -449,10 +463,13 @@
 			baseConfigurationReference = 7DA3A742354F3107E6B82311 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Delivery/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Delivery/Delivery-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -461,10 +478,12 @@
 			baseConfigurationReference = 523EA86EE30160508A32573A /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = Delivery/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Delivery/Delivery-Bridging-Header.h";
 			};
 			name = Release;
 		};
