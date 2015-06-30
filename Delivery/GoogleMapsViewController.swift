@@ -9,25 +9,28 @@
 import UIKit
 import GoogleMaps
 
-class GoogleMapsViewController: UIViewController {
+class GoogleMapsViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var mView: GMSMapView!
     
+    let locationManager = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        
         // Do any additional setup after loading the view.
         var camera = GMSCameraPosition.cameraWithLatitude(47.92,
             longitude:106.92, zoom:6)
-        var mapView = GMSMapView.mapWithFrame(CGRectZero, camera:camera)
+        mView.camera = camera
         
         var marker = GMSMarker()
         marker.position = camera.target
         marker.snippet = "Hello World"
         marker.appearAnimation = kGMSMarkerAnimationPop
         marker.map = mView
-        
-        mView = mapView
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,15 +38,32 @@ class GoogleMapsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - Location Manager Delegate Methods
+    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+  
+        if status == .AuthorizedWhenInUse {
+            
+         
+            locationManager.startUpdatingLocation()
+            
+      
+            mView.myLocationEnabled = true
+            mView.settings.myLocationButton = true
+        }
     }
-    */
+    
+ 
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        if let location = locations.first as? CLLocation {
+            
+     
+            mView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
+            
+       
+            locationManager.stopUpdatingLocation()
+        }
+    }
 
 }
