@@ -38,6 +38,14 @@ class DeliveryCell: UITableViewCell {
         }
     }
     
+    var deliveryButtonId: Int = 0 {
+        didSet {
+            if deliveryButtonId != oldValue {
+                deliveryButton.restorationIdentifier = String(deliveryButtonId)
+            }
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -61,7 +61,7 @@ class JobsList: NSObject {
     }
     
     // store jobs by IDs
-    private(set) var claimedJobs: Array<Job>
+    var claimedJobs: Array<Job>
     var unclaimedJobs: Array<Job>
     
     override init() {

@@ -56,6 +56,7 @@
 		1C291B511B3F5DED003BD7D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1C6DC6931B3C85930017632F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		1C6DC6951B3C87310017632F /* GoogleMapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapsViewController.swift; sourceTree = "<group>"; };
+		1CAF8D2F1B423D7400C18FCE /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		1CCE6DE81B38B69600D0F5D2 /* JobsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobsListViewController.swift; sourceTree = "<group>"; };
 		1CCE6DEA1B38B7D700D0F5D2 /* JobDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDetailViewController.swift; sourceTree = "<group>"; };
 		1CCE6DEE1B38FC9600D0F5D2 /* ClaimedJobsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClaimedJobsViewController.swift; sourceTree = "<group>"; };
@@ -180,6 +181,7 @@
 		A5E9440128193C3D4D4304CF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1CAF8D2F1B423D7400C18FCE /* GLKit.framework */,
 				437B7261E7DFAA7B121DC08A /* libPods.a */,
 			);
 			name = Frameworks;

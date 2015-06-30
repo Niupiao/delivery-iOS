@@ -12,10 +12,19 @@ struct HTTPHelper {
     
     static let BASE_URL = "https://niupiaomarket.herokuapp.com/delivery"
     
-    func buildRequest(path: String!, method: String, key: String!) -> NSMutableURLRequest {
+    func buildRequest(path: String!, method: String, key: String, deliveryId: Int?, status: String?) -> NSMutableURLRequest {
+        var requestURL: NSURL!
+        var request: NSMutableURLRequest!
+        
         // 1. Create request URL from path
-        let requestURL = NSURL(string: "\(HTTPHelper.BASE_URL)/\(path)?format=json&key=\(key)")!
-        var request = NSMutableURLRequest(URL: requestURL)
+        if ((deliveryId == nil) && (status == nil)) {
+            requestURL = NSURL(string: "\(HTTPHelper.BASE_URL)/\(path)?format=json&key=\(key)")!
+        } else if status == nil {
+            requestURL = NSURL(string: "\(HTTPHelper.BASE_URL)/\(path)?format=json&key=\(key)&delivery_id=\(deliveryId!)")!
+        } else {
+            requestURL = NSURL(string: "\(HTTPHelper.BASE_URL)/\(path)?format=json&key=\(key)&delivery_id=\(deliveryId!)&status=\(status!)")!
+        }
+        request = NSMutableURLRequest(URL: requestURL)
         
         // 2. set http method and content type
         request.HTTPMethod = method
@@ -34,6 +43,7 @@ struct HTTPHelper {
                 
                 return
             }
+            
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 if let httpResponse = response as? NSHTTPURLResponse {
                     if httpResponse.statusCode == 200 {
@@ -65,5 +75,35 @@ struct HTTPHelper {
         
         return errorMessage
     }
+    
+    func parseJson(object: AnyObject) -> Array<Job> {
+        
+        var list: Array<Job> = []
+        
+        if object is Array<AnyObject> {
+            
+            for json in object as! Array<AnyObject> {
+                var job: Job = Job()
+                job.ID = (json["id"] as AnyObject? as? Int) ?? 0
+                job.item_name = (json["item_name"] as AnyObject? as? String) ?? ""
+                job.item_quantity = (json["item_quantity"] as AnyObject? as? Int) ?? 0
+                job.pickedUp = false
+                job.claimed = (json["claimed"] as AnyObject? as? Int) ?? 0
+                job.pickup_available_time = (json["seller_availability"] as AnyObject? as? String) ?? ""
+                job.dropoff_available_time = (json["buyer_availability"] as AnyObject? as? String) ?? ""
+                job.wage = (json["charge"] as AnyObject? as? Double) ?? 0
+                job.pickup_address = (json["seller_address"] as AnyObject? as? String) ?? ""
+                job.dropoff_address = (json["buyer_address"] as AnyObject? as? String) ?? ""
+                job.pickup_phone = (json["seller_phone"] as AnyObject? as? String) ?? ""
+                job.dropoff_phone = (json["buyer_phone"] as AnyObject? as? String) ?? ""
+                job.deliveryInstruction = (json["delivery_instruction"] as AnyObject? as? String) ?? ""
+                job.pickedUp = (json["status"] as AnyObject? as? String) == "In Transit" ? true : false
+                list.append(job)
+            }
+        }
+        
+        return list
+    }
+
 }
 

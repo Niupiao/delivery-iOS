@@ -39,6 +39,14 @@ class ProgressCell: UITableViewCell {
         }
     }
     
+    var pickupButtonId: Int = 0 {
+        didSet {
+            if pickupButtonId != oldValue {
+                pickupButton.restorationIdentifier = String(pickupButtonId)
+            }
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -54,7 +54,7 @@ class LoginViewController: UIViewController {
     }
     
     func loginRequest(key: String!){
-        let httpRequest = httpHelper.buildRequest("login", method: "GET", key: key)
+        let httpRequest = httpHelper.buildRequest("login", method: "GET", key: key, deliveryId: nil, status: nil)
         httpHelper.sendRequest(httpRequest, completion: {(data:NSData!, error:NSError!) in
             // Display error
             self.activityIndicator.stopAnimating()

@@ -46,7 +46,8 @@ class JobsListViewController: UITableViewController, UITableViewDataSource {
     
     // makes sure data is updated after a user claims a job
     override func viewWillAppear(animated: Bool) {
-        unclaimedJobs = jobsList.unclaimedJobs
+        super.viewWillAppear(animated)
+        requestJobs(accessKey)
         tableView.reloadData()
     }
 
@@ -83,7 +84,7 @@ class JobsListViewController: UITableViewController, UITableViewDataSource {
     // MARK: - Server Communication
     
     func requestJobs(key: String){
-        let request = httpHelper.buildRequest("index", method: "GET", key: accessKey)
+        let request = httpHelper.buildRequest("index", method: "GET", key: key, deliveryId: nil, status: nil)
         httpHelper.sendRequest(request, completion: {(data:NSData!, error:NSError!) in
             // Display error
             if error != nil {
@@ -98,7 +99,7 @@ class JobsListViewController: UITableViewController, UITableViewDataSource {
             
             var error:NSError?
             let responseDict: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &error)
-            self.jobsList.unclaimedJobs = self.parseJson(responseDict!)
+            self.jobsList.unclaimedJobs = self.httpHelper.parseJson(responseDict!)
             self.unclaimedJobs = self.jobsList.unclaimedJobs
             self.tableView.reloadData()
         })
@@ -109,7 +110,7 @@ class JobsListViewController: UITableViewController, UITableViewDataSource {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //Return the number of rows in the section.
-        return unclaimedJobs.count
+        return unclaimedJobs != nil ? unclaimedJobs.count : 0
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -131,34 +132,5 @@ class JobsListViewController: UITableViewController, UITableViewDataSource {
         
             jobVC.jobSelected = unclaimedJobs[indexPath.row]
             jobVC.navigationItem.title = String(unclaimedJobs[indexPath.row].ID)
-    }
-    
-    // MARK: - Helper Methods
-    
-    func parseJson(object: AnyObject) -> Array<Job> {
-        
-        var list: Array<Job> = []
-        var job: Job = Job()
-        
-        if object is Array<AnyObject> {
-        
-            for json in object as! Array<AnyObject> {
-                job.item_name = (json["item_name"] as AnyObject? as? String) ?? ""
-                job.item_quantity = (json["item_quantity"] as AnyObject? as? Int) ?? 0
-                job.pickedUp = false
-                job.claimed = (json["claimed"] as AnyObject? as? Int) ?? 0
-                job.pickup_available_time = (json["seller_availability"] as AnyObject? as? String) ?? ""
-                job.dropoff_available_time = (json["buyer_availability"] as AnyObject? as? String) ?? ""
-                job.wage = (json["charge"] as AnyObject? as? Double) ?? 0
-                job.pickup_address = (json["seller_address"] as AnyObject? as? String) ?? ""
-                job.dropoff_address = (json["buyer_address"] as AnyObject? as? String) ?? ""
-                job.pickup_phone = (json["seller_phone"] as AnyObject? as? String) ?? ""
-                job.dropoff_phone = (json["buyer_phone"] as AnyObject? as? String) ?? ""
-                job.deliveryInstruction = (json["delivery_instruction"] as AnyObject? as? String) ?? ""
-                list.append(job)
-            }
-        }
-        
-        return list
     }
 }

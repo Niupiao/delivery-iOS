@@ -10,7 +10,9 @@ import UIKit
 import GoogleMaps
 
 class GoogleMapsViewController: UIViewController {
-
+    
+    @IBOutlet weak var mView: GMSMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,9 +25,9 @@ class GoogleMapsViewController: UIViewController {
         marker.position = camera.target
         marker.snippet = "Hello World"
         marker.appearAnimation = kGMSMarkerAnimationPop
-        marker.map = mapView
+        marker.map = mView
         
-        self.view = mapView
+        mView = mapView
     }
 
     override func didReceiveMemoryWarning() {
