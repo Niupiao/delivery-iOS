@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>EAC1B527-1354-4FDF-B53D-D5D4DE059B9F</string>
+	<string>33544588-6C7B-4188-8D02-3ED8114EE8C4</string>
 	<key>IDESourceControlProjectName</key>
 	<string>Delivery</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>38505CBD882604DBCD0B1B88C10170B1AB3143E5</key>
-		<string>github.com:Niupiao/delivery-iOS.git</string>
+		<key>BFDFFC1EACB49C3DF78A8CB209E40BB7A3CCB368</key>
+		<string>https://github.com/Niupiao/delivery-iOS.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Delivery.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>38505CBD882604DBCD0B1B88C10170B1AB3143E5</key>
+		<key>BFDFFC1EACB49C3DF78A8CB209E40BB7A3CCB368</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>github.com:Niupiao/delivery-iOS.git</string>
+	<string>https://github.com/Niupiao/delivery-iOS.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>38505CBD882604DBCD0B1B88C10170B1AB3143E5</string>
+	<string>BFDFFC1EACB49C3DF78A8CB209E40BB7A3CCB368</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>38505CBD882604DBCD0B1B88C10170B1AB3143E5</string>
+			<string>BFDFFC1EACB49C3DF78A8CB209E40BB7A3CCB368</string>
 			<key>IDESourceControlWCCName</key>
-			<string>Delivery</string>
+			<string>delivery-iOS</string>
 		</dict>
 	</array>
 </dict>

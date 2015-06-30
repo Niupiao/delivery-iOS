@@ -38,7 +38,9 @@ class ClaimedJobsViewController: UITableViewController, UITableViewDataSource {
 
     @IBAction func pickedUpPressed(sender: UIButton) {
         updateStatus(accessKey, deliveryId: sender.tag, status: "In%20Transit")
+        sender.setImage(UIImage(named:"checked-box"), forState:UIControlState.Normal)
         requestClaimed(accessKey)
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -66,8 +68,9 @@ class ClaimedJobsViewController: UITableViewController, UITableViewDataSource {
             cell.pickUpButtonTag = job.ID
             return cell
         } else {
-            let cell = tableView.dequeueReusableCellWithIdentifier(deliveryCellIdentifier, forIndexPath: indexPath) as! DeliveryCell
+            // if job is picked up but not delivered
             
+            let cell = tableView.dequeueReusableCellWithIdentifier(deliveryCellIdentifier, forIndexPath: indexPath) as! DeliveryCell
             cell.deliveryWindow = job.dropoff_available_time
             cell.deliveryAddress = job.dropoff_address
             cell.deliveryButtonTag = job.ID
