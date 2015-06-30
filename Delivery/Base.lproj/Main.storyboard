@@ -101,11 +101,56 @@
                         <segue destination="rS3-R9-Ivy" kind="relationship" relationship="viewControllers" id="95H-PL-NUR"/>
                         <segue destination="lVX-Bu-reR" kind="relationship" relationship="viewControllers" id="CHw-h0-Rgu"/>
                         <segue destination="BBU-3Z-30v" kind="relationship" relationship="viewControllers" id="uSE-4g-yGf"/>
+                        <segue destination="tLr-GL-Xsf" kind="relationship" relationship="viewControllers" id="fja-fL-B2i"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="748-37-Amn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1010" y="-3"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="VII-Sq-2Xc">
+            <objects>
+                <tableViewController id="pCR-E1-7Ob" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="tTR-ID-agW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="rCL-5Y-9pN">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rCL-5Y-9pN" id="awZ-a4-bZH">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="pCR-E1-7Ob" id="B4r-8W-fot"/>
+                            <outlet property="delegate" destination="pCR-E1-7Ob" id="5jq-oK-tAv"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="dYH-vx-h10"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bJv-aK-oqv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-297" y="801"/>
+        </scene>
+        <!--Completed-->
+        <scene sceneID="Dj9-Et-n8w">
+            <objects>
+                <navigationController title="Completed" id="tLr-GL-Xsf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Completed Jobs" image="nav-completed-icon" id="uba-kB-dyd"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="BnZ-Lu-rDl">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="pCR-E1-7Ob" kind="relationship" relationship="rootViewController" id="W8h-UA-J3i"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RwV-df-HfN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1117" y="801"/>
         </scene>
         <!--Claimed Jobs-->
         <scene sceneID="Op0-ed-unI">
@@ -383,7 +428,9 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Maps" id="2er-r8-eF0"/>
+                    <tabBarItem key="tabBarItem" title="Maps" image="nav-map-icon" id="2er-r8-eF0">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="mView" destination="YK7-aX-l9M" id="zad-c4-4rE"/>
                     </connections>
@@ -396,7 +443,7 @@
         <scene sceneID="i0l-Vf-GKh">
             <objects>
                 <navigationController id="lVX-Bu-reR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Claimed Jobs" id="c6S-VL-7mL"/>
+                    <tabBarItem key="tabBarItem" title="Claimed Jobs" image="nav-claimed-icon" id="c6S-VL-7mL"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Qgw-bW-YJD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -413,7 +460,7 @@
         <scene sceneID="cUi-kZ-frf">
             <objects>
                 <navigationController title="Master" id="rS3-R9-Ivy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Available Jobs" id="ZbG-dS-Zkk"/>
+                    <tabBarItem key="tabBarItem" title="Available Jobs" image="nav-unclaimed-icon" id="ZbG-dS-Zkk"/>
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="yXu-0R-QUA">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -857,6 +904,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="nav-claimed-icon" width="32" height="32"/>
+        <image name="nav-completed-icon" width="32" height="32"/>
+        <image name="nav-map-icon" width="32" height="32"/>
+        <image name="nav-unclaimed-icon" width="32" height="32"/>
         <image name="templogo" width="277" height="70"/>
     </resources>
     <inferredMetricsTieBreakers>
