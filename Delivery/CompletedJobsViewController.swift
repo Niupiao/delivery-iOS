@@ -35,18 +35,12 @@ class CompletedJobsViewController: UITableViewController, UITableViewDataSource 
         jobsList = JobsList.jobsList
         completedJobs = jobsList.completedJobs
         totalSalary = 0
-        for job in completedJobs {
-            totalSalary = totalSalary + job.wage
-        }
-        refreshTable()
+        requestCompleted(accessKey)
+        tableView.reloadData()
     }
     
     func refreshTable(){
         requestCompleted(accessKey)
-        totalSalary = 0
-        for job in completedJobs {
-            totalSalary = totalSalary + job.wage
-        }
         tableView.reloadData()
         refreshControl?.endRefreshing()
     }
@@ -111,6 +105,10 @@ class CompletedJobsViewController: UITableViewController, UITableViewDataSource 
             let responseDict: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &error)
             self.jobsList.completedJobs = self.httpHelper.parseJson(responseDict!, completed: true)
             self.completedJobs = self.jobsList.completedJobs
+            self.totalSalary = 0
+            for job in self.completedJobs {
+                self.totalSalary = self.totalSalary + job.wage
+            }
         })
     }
 
