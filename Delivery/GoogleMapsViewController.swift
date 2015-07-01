@@ -19,6 +19,7 @@ class GoogleMapsViewController: UIViewController, CLLocationManagerDelegate {
     var jobsCoordinates: Dictionary<String, CLLocationCoordinate2D>!
     var mapTask = MapTask()
     var claimedJobs: Array<Job>!
+    var firstTimeLocating: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,10 +32,7 @@ class GoogleMapsViewController: UIViewController, CLLocationManagerDelegate {
         mView.myLocationEnabled = true
         mView.settings.myLocationButton = true
         
-        let camera = GMSCameraPosition.cameraWithLatitude(locationManager.location.coordinate.latitude, longitude: locationManager.location.coordinate.longitude, zoom: 14)
-        
-        mView.camera = camera
-
+        mView.addObserver(self, forKeyPath: "myLocation", options: .New, context: nil)
         
         claimedJobs = jobsList.claimedJobs
         
@@ -45,6 +43,16 @@ class GoogleMapsViewController: UIViewController, CLLocationManagerDelegate {
             locationMarker.map = mView
         }
         
+    }
+    
+    override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {
+        if firstTimeLocating {
+            let myLocation: CLLocation = change[NSKeyValueChangeNewKey] as! CLLocation
+            mView.camera = GMSCameraPosition.cameraWithTarget(myLocation.coordinate, zoom: 10.0)
+            mView.settings.myLocationButton = true
+            
+            firstTimeLocating = false
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
