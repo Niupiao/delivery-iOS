@@ -57,7 +57,7 @@ class CompletedJobsViewController: UITableViewController, UITableViewDataSource 
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section == 1 ? "Total Wage" : "Completed Jobs"
+        return section == 1 ? "Completed Jobs" : "Total Wage" 
     }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
