@@ -36,13 +36,18 @@ class CompletedJobsViewController: UITableViewController, UITableViewDataSource 
         completedJobs = jobsList.completedJobs
         totalSalary = 0
         requestCompleted(accessKey)
-        tableView.reloadData()
     }
     
     func refreshTable(){
         requestCompleted(accessKey)
         tableView.reloadData()
         refreshControl?.endRefreshing()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        completedJobs = jobsList.completedJobs
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,7 +62,7 @@ class CompletedJobsViewController: UITableViewController, UITableViewDataSource 
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section == 1 ? "Completed Jobs" : "Total Wage" 
+        return section == 1 ? "Completed Jobs" : "Total Wage"
     }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
@@ -109,6 +114,7 @@ class CompletedJobsViewController: UITableViewController, UITableViewDataSource 
             for job in self.completedJobs {
                 self.totalSalary = self.totalSalary + job.wage
             }
+            self.tableView.reloadData()
         })
     }
 
