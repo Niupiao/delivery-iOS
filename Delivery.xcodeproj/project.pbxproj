@@ -12,6 +12,8 @@
 		1C6DC6941B3C85930017632F /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 1C6DC6931B3C85930017632F /* Podfile */; };
 		1C6DC6961B3C87310017632F /* GoogleMapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6DC6951B3C87310017632F /* GoogleMapsViewController.swift */; };
 		1C742A4A1B44448400753C83 /* CompletedJobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C742A491B44448400753C83 /* CompletedJobsViewController.swift */; };
+		1C742A4C1B444AA000753C83 /* JobCompletedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C742A4B1B444AA000753C83 /* JobCompletedCell.swift */; };
+		1C742A4E1B4453E800753C83 /* TotalWageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C742A4D1B4453E800753C83 /* TotalWageCell.swift */; };
 		1C7F92BA1B43335C005AFC8D /* MapTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F92B91B43335C005AFC8D /* MapTask.swift */; };
 		1CCE6DE91B38B69600D0F5D2 /* JobsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCE6DE81B38B69600D0F5D2 /* JobsListViewController.swift */; };
 		1CCE6DEB1B38B7D700D0F5D2 /* JobDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCE6DEA1B38B7D700D0F5D2 /* JobDetailViewController.swift */; };
@@ -59,6 +61,8 @@
 		1C6DC6931B3C85930017632F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		1C6DC6951B3C87310017632F /* GoogleMapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapsViewController.swift; sourceTree = "<group>"; };
 		1C742A491B44448400753C83 /* CompletedJobsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedJobsViewController.swift; sourceTree = "<group>"; };
+		1C742A4B1B444AA000753C83 /* JobCompletedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobCompletedCell.swift; sourceTree = "<group>"; };
+		1C742A4D1B4453E800753C83 /* TotalWageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TotalWageCell.swift; sourceTree = "<group>"; };
 		1C7F92B91B43335C005AFC8D /* MapTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapTask.swift; sourceTree = "<group>"; };
 		1CAF8D2F1B423D7400C18FCE /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		1CCE6DE81B38B69600D0F5D2 /* JobsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobsListViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 				1CCE6DF81B39D8CA00D0F5D2 /* JobCell.swift */,
 				1CCE6DFA1B39FB7D00D0F5D2 /* ProgressCell.swift */,
 				1CCE6DFE1B3A3A8C00D0F5D2 /* DeliveryCell.swift */,
+				1C742A4B1B444AA000753C83 /* JobCompletedCell.swift */,
+				1C742A4D1B4453E800753C83 /* TotalWageCell.swift */,
 				1CCE6DEA1B38B7D700D0F5D2 /* JobDetailViewController.swift */,
 				1C742A491B44448400753C83 /* CompletedJobsViewController.swift */,
 				1CCE6DEE1B38FC9600D0F5D2 /* ClaimedJobsViewController.swift */,
@@ -337,7 +343,9 @@
 				1CCE6DEF1B38FC9600D0F5D2 /* ClaimedJobsViewController.swift in Sources */,
 				1CCE6DFB1B39FB7D00D0F5D2 /* ProgressCell.swift in Sources */,
 				1CCE6DE91B38B69600D0F5D2 /* JobsListViewController.swift in Sources */,
+				1C742A4E1B4453E800753C83 /* TotalWageCell.swift in Sources */,
 				1CCE6DEB1B38B7D700D0F5D2 /* JobDetailViewController.swift in Sources */,
+				1C742A4C1B444AA000753C83 /* JobCompletedCell.swift in Sources */,
 				7E55C9CC1B3879B300360876 /* AppDelegate.swift in Sources */,
 				1C6DC6961B3C87310017632F /* GoogleMapsViewController.swift in Sources */,
 				1C291B4F1B3F27EF003BD7D7 /* KeychainWrapper.m in Sources */,

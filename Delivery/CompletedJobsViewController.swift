@@ -8,16 +8,47 @@
 
 import UIKit
 
-class CompletedJobsViewController: UITableViewController {
+class CompletedJobsViewController: UITableViewController, UITableViewDataSource {
 
+    var jobsList: JobsList!
+    var accessKey: String!
+    var completedJobs: Array<Job>!
+    var totalSalary: Double!
+    var refresh: UIRefreshControl!
+    
+    let httpHelper = HTTPHelper()
+    let completedJobCellIdentifier = "completedJobCell"
+    let wageCellIdentifier = "totalCell"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        self.refresh = UIRefreshControl()
+        self.refresh.attributedTitle = NSAttributedString(string: "Pull down to refresh.")
+        self.refresh.addTarget(self, action: "refreshTable", forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl = refresh
+        self.tableView.addSubview(refresh)
+        
+        let keychainWrapper = KeychainWrapper()
+        accessKey = keychainWrapper.myObjectForKey("v_Data") as! String
+        
+        jobsList = JobsList.jobsList
+        completedJobs = jobsList.completedJobs
+        totalSalary = 0
+        for job in completedJobs {
+            totalSalary = totalSalary + job.wage
+        }
+        refreshTable()
+    }
+    
+    func refreshTable(){
+        requestCompleted(accessKey)
+        totalSalary = 0
+        for job in completedJobs {
+            totalSalary = totalSalary + job.wage
+        }
+        tableView.reloadData()
+        refreshControl?.endRefreshing()
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,70 +59,59 @@ class CompletedJobsViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 0
+        return completedJobs.count == 0 ? 0 : 2
     }
-
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return section == 1 ? "Total Wage" : "Completed Jobs"
+    }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+        if section == 0 {
+            return 1
+        } else {
+            return completedJobs.count
+        }
     }
-
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
-
-        // Configure the cell...
-
-        return cell
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCellWithIdentifier(wageCellIdentifier) as! TotalWageCell
+            
+            cell.totalWage = totalSalary
+            return cell
+        } else {
+            let job = completedJobs[indexPath.row]
+            let cell = tableView.dequeueReusableCellWithIdentifier(completedJobCellIdentifier) as! JobCompletedCell
+        
+            cell.wage = job.wage
+            cell.address = job.dropoff_address
+            return cell
+        }
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
+    
+    // MARK: - Server Communication
+    
+    // Urtuu Server
+    func requestCompleted(key: String){
+        let request = httpHelper.buildRequest("claimed", method: "GET", key: key, deliveryId: nil, status: nil)
+        httpHelper.sendRequest(request, completion: {(data:NSData!, error:NSError!) in
+            // Display error
+            if error != nil {
+                let errorMessage = self.httpHelper.getErrorMessage(error)
+                let alert = UIAlertView()
+                alert.title = "Error"
+                alert.message = errorMessage as String
+                alert.show()
+                
+                return
+            }
+            
+            var error:NSError?
+            let responseDict: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &error)
+            self.jobsList.completedJobs = self.httpHelper.parseJson(responseDict!, completed: true)
+            self.completedJobs = self.jobsList.completedJobs
+        })
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

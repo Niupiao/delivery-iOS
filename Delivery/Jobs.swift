@@ -67,11 +67,13 @@ class JobsList: NSObject {
     // store jobs by IDs
     var claimedJobs: Array<Job>
     var unclaimedJobs: Array<Job>
+    var completedJobs: Array<Job>
     
     override init() {
         // get stuff from database here?
         claimedJobs = []
         unclaimedJobs = []
+        completedJobs = []
     }
     
     func addJob(targetJob: Job){
