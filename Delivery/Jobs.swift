@@ -34,6 +34,8 @@ class Job: Printable, Equatable {
     var pickedUp = false
     var delivered = false
     
+    var location: CLLocationCoordinate2D = CLLocationCoordinate2D()
+    
     var description: String {
         return "Pickup address: \(pickup_address)\nPickup name: \(pickup_name)\nPickup phone#: \(pickup_phone)"
     }
@@ -42,8 +44,8 @@ class Job: Printable, Equatable {
         
     }
     
-    init (identifier: Int) {
-        self.ID = identifier;
+    init(identifier: Int){
+        self.ID = identifier
     }
 }
 
@@ -60,14 +62,16 @@ class JobsList: NSObject {
         return Singleton.instance
     }
     
+    let defaults = NSUserDefaults.standardUserDefaults()
+    
     // store jobs by IDs
     var claimedJobs: Array<Job>
     var unclaimedJobs: Array<Job>
     
     override init() {
         // get stuff from database here?
-        claimedJobs = [] //local
-        unclaimedJobs = [] //updates sent to server often
+        claimedJobs = []
+        unclaimedJobs = []
     }
     
     func addJob(targetJob: Job){
@@ -77,8 +81,8 @@ class JobsList: NSObject {
         }
     }
     
-    func removeJob(targetJob: Job){
-        if let jobIndex = find(claimedJobs, targetJob) {
+    func removeClaimedJob(targetJob: Job){
+        if let jobIndex = find(claimedJobs, targetJob){
             claimedJobs.removeAtIndex(jobIndex)
             //completeClaimedJob()
         }
@@ -93,7 +97,6 @@ class JobsList: NSObject {
     func saveClaimedJobs(){
         // save to database
     }
-    
 }
 
 

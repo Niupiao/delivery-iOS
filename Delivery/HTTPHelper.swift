@@ -11,6 +11,8 @@ import Foundation
 struct HTTPHelper {
     
     static let BASE_URL = "https://niupiaomarket.herokuapp.com/delivery"
+    static let baseURLGeocode = "https://maps.googleapis.com/maps/api/geocode/json?"
+    let mapTask = MapTask()
     
     func buildRequest(path: String!, method: String, key: String, deliveryId: Int?, status: String?) -> NSMutableURLRequest {
         var requestURL: NSURL!
@@ -97,12 +99,32 @@ struct HTTPHelper {
                 job.pickup_phone = (json["seller_phone"] as AnyObject? as? String) ?? ""
                 job.dropoff_phone = (json["buyer_phone"] as AnyObject? as? String) ?? ""
                 job.deliveryInstruction = (json["delivery_instruction"] as AnyObject? as? String) ?? ""
+                let delivered = (json["status"] as AnyObject? as? String) == "Delivered" ? true : false
+                getJobCoordinates(job)
                 job.pickedUp = (json["status"] as AnyObject? as? String) == "In Transit" ? true : false
-                list.append(job)
+                if !delivered {
+                    list.append(job)
+                }
             }
         }
         
         return list
+    }
+    
+    //Getting Coordinates for Addresses
+    func getJobCoordinates(job: Job){
+        mapTask.geocodeAddress( job.pickedUp ? job.dropoff_address : job.pickup_address, withCompletionHandler: { (status, success) -> Void in
+            if !success {
+                println(status)
+                
+                if status == "ZERO_RESULTS" {
+                    //do nothing
+                }
+            }
+            else {
+                job.location = CLLocationCoordinate2D(latitude: self.mapTask.fetchedAddressLatitude, longitude: self.mapTask.fetchedAddressLongitude)
+            }
+        })
     }
 
 }

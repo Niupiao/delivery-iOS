@@ -29,6 +29,7 @@ class JobDetailViewController: UIViewController {
     var jobSelected: Job!
     var accessKey: String!
     
+    let mapTask = MapTask()
     let httpHelper = HTTPHelper()
     let keychain = KeychainWrapper()
     
@@ -64,6 +65,7 @@ class JobDetailViewController: UIViewController {
     
     @IBAction func claimButtonPressed(sender: UIButton) {
         claimJob(accessKey, deliveryId: jobSelected.ID)
+        JobsList.jobsList.removeUnclaimedJob(jobSelected)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -90,4 +92,8 @@ class JobDetailViewController: UIViewController {
             let responseDict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &error) as! NSDictionary
         })
     }
+    
+    //MARK: - Google Maps Communication
+    
+    
 }

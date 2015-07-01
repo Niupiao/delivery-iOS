@@ -49,6 +49,7 @@ class DeliveryCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        deliveryButton.setImage(UIImage(named:"checked-box"), forState:UIControlState.Disabled)
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
