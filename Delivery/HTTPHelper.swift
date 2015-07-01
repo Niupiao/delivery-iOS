@@ -100,8 +100,8 @@ struct HTTPHelper {
                 job.dropoff_phone = (json["buyer_phone"] as AnyObject? as? String) ?? ""
                 job.deliveryInstruction = (json["delivery_instruction"] as AnyObject? as? String) ?? ""
                 let delivered = (json["status"] as AnyObject? as? String) == "Delivered" ? true : false
-                getJobCoordinates(job)
                 job.pickedUp = (json["status"] as AnyObject? as? String) == "In Transit" ? true : false
+                getJobCoordinates(job)
                 if !delivered {
                     list.append(job)
                 }

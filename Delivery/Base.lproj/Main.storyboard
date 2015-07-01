@@ -405,7 +405,11 @@
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="ywM-Jm-ndT"/>
-                                    <barButtonItem systemItem="action" id="on2-VV-Vmh"/>
+                                    <barButtonItem title="Update" id="on2-VV-Vmh">
+                                        <connections>
+                                            <action selector="updatePressed:" destination="BBU-3Z-30v" id="pig-ye-aGp"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YK7-aX-l9M" customClass="GMSMapView">
@@ -917,6 +921,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="CHw-h0-Rgu"/>
-        <segue reference="aEo-mb-UVo"/>
+        <segue reference="WZN-9Y-1aB"/>
     </inferredMetricsTieBreakers>
 </document>
