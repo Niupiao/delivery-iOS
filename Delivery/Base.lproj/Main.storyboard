@@ -108,10 +108,10 @@
             </objects>
             <point key="canvasLocation" x="-1010" y="-3"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Completed Jobs-->
         <scene sceneID="VII-Sq-2Xc">
             <objects>
-                <tableViewController id="pCR-E1-7Ob" sceneMemberID="viewController">
+                <tableViewController id="pCR-E1-7Ob" customClass="CompletedJobsViewController" customModule="Delivery" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="tTR-ID-agW">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -129,7 +129,7 @@
                             <outlet property="delegate" destination="pCR-E1-7Ob" id="5jq-oK-tAv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="dYH-vx-h10"/>
+                    <navigationItem key="navigationItem" title="Completed Jobs" id="dYH-vx-h10"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bJv-aK-oqv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

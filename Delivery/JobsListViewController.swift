@@ -102,9 +102,10 @@ class JobsListViewController: UITableViewController, UITableViewDataSource {
             
             var error:NSError?
             let responseDict: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &error)
-            self.jobsList.unclaimedJobs = self.httpHelper.parseJson(responseDict!)
+            self.jobsList.unclaimedJobs = self.httpHelper.parseJson(responseDict!, completed: false)
             self.unclaimedJobs = self.jobsList.unclaimedJobs
             self.tableView.reloadData()
+            self.refreshControl?.endRefreshing()
         })
             
     }

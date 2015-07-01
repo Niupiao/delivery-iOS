@@ -55,7 +55,6 @@ class ClaimedJobsViewController: UITableViewController, UITableViewDataSource {
         if let index = find(claimedJobs, Job(identifier: sender.tag)){
             claimedJobs[index].pickedUp = true
         }
-        sender.setImage(UIImage(named:"checked-box"), forState:UIControlState.Normal)
         claimedJobs = jobsList.claimedJobs
         tableView.reloadData()
     }
@@ -132,7 +131,7 @@ class ClaimedJobsViewController: UITableViewController, UITableViewDataSource {
             
             var error:NSError?
             let responseDict: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &error)
-            self.jobsList.claimedJobs = self.httpHelper.parseJson(responseDict!)
+            self.jobsList.claimedJobs = self.httpHelper.parseJson(responseDict!, completed: false)
             self.claimedJobs = self.jobsList.claimedJobs
             self.tableView.reloadData()
         })

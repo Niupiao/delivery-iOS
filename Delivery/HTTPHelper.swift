@@ -78,7 +78,7 @@ struct HTTPHelper {
         return errorMessage
     }
     
-    func parseJson(object: AnyObject) -> Array<Job> {
+    func parseJson(object: AnyObject, completed: Bool) -> Array<Job> {
         
         var list: Array<Job> = []
         
@@ -102,7 +102,10 @@ struct HTTPHelper {
                 let delivered = (json["status"] as AnyObject? as? String) == "Delivered" ? true : false
                 job.pickedUp = (json["status"] as AnyObject? as? String) == "In Transit" ? true : false
                 getJobCoordinates(job)
-                if !delivered {
+                if !delivered && !completed {
+                    list.append(job)
+                }
+                if delivered && completed {
                     list.append(job)
                 }
             }

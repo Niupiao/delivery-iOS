@@ -31,7 +31,7 @@ class MapTask: NSObject {
             
             let geocodeURL = NSURL(string: geocodeURLString)
             
-            var request: NSURLRequest = NSURLRequest(URL: geocodeURL!, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 1)
+            var request: NSURLRequest = NSURLRequest(URL: geocodeURL!, cachePolicy: NSURLRequestCachePolicy.ReturnCacheDataElseLoad, timeoutInterval: 2)
             
             var response: NSURLResponse?
             var error: NSError?
