@@ -28,6 +28,7 @@ class JobsListViewController: UITableViewController, UITableViewDataSource {
         self.refreshControl = refresh
         self.tableView.addSubview(refresh)
         
+        // checking defaults to see if user is logged in
         let defaults = NSUserDefaults.standardUserDefaults()
         if defaults.objectForKey("userLoggedIn?") == nil {
             if let loginController = self.storyboard?.instantiateViewControllerWithIdentifier("login") as? UIViewController {
@@ -35,6 +36,7 @@ class JobsListViewController: UITableViewController, UITableViewDataSource {
             }
         }
         
+        // getting access key from keychain
         let keychainWrapper = KeychainWrapper()
         accessKey = keychainWrapper.myObjectForKey("v_Data") as! String
         
@@ -59,7 +61,7 @@ class JobsListViewController: UITableViewController, UITableViewDataSource {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    // sorting
     @IBAction func sortButtonPressed(sender: UIBarButtonItem) {
         var sortByWage: Bool = false
         var sortByDistance: Bool = false

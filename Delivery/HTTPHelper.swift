@@ -12,6 +12,7 @@ struct HTTPHelper {
     
     static let BASE_URL = "https://niupiaomarket.herokuapp.com/delivery"
     static let baseURLGeocode = "https://maps.googleapis.com/maps/api/geocode/json?"
+    
     let mapTask = MapTask()
     
     func buildRequest(path: String!, method: String, key: String, deliveryId: Int?, status: String?) -> NSMutableURLRequest {

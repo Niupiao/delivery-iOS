@@ -70,7 +70,6 @@ class JobsList: NSObject {
     var completedJobs: Array<Job>
     
     override init() {
-        // get stuff from database here?
         claimedJobs = []
         unclaimedJobs = []
         completedJobs = []
@@ -79,14 +78,12 @@ class JobsList: NSObject {
     func addJob(targetJob: Job){
         if(!contains(claimedJobs, targetJob)){
             claimedJobs.append(targetJob)
-            //saveClaimedJob()
         }
     }
     
     func removeClaimedJob(targetJob: Job){
         if let jobIndex = find(claimedJobs, targetJob){
             claimedJobs.removeAtIndex(jobIndex)
-            //completeClaimedJob()
         }
     }
     
@@ -94,10 +91,6 @@ class JobsList: NSObject {
         if let jobIndex = find(unclaimedJobs, targetJob){
             unclaimedJobs.removeAtIndex(jobIndex)
         }
-    }
-    
-    func saveClaimedJobs(){
-        // save to database
     }
 }
 

@@ -54,6 +54,8 @@ class LoginViewController: UIViewController {
         }
     }
     
+    // MARK: - Server communication
+    
     func loginRequest(key: String!){
         let httpRequest = httpHelper.buildRequest("login", method: "GET", key: key, deliveryId: nil, status: nil)
         httpHelper.sendRequest(httpRequest, completion: {(data:NSData!, error:NSError!) in
@@ -81,6 +83,8 @@ class LoginViewController: UIViewController {
             }
         })
     }
+    
+    //MARK: - Helper Methods
     
     func displayAlertMessage(alertTitle:String, alertDescription:String) -> Void {
         // hide activityIndicator view and display alert message

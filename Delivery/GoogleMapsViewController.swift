@@ -28,7 +28,6 @@ class GoogleMapsViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.requestWhenInUseAuthorization()
         
         // Do any additional setup after loading the view.
-        
         mView.myLocationEnabled = true
         mView.settings.myLocationButton = true
         
@@ -64,12 +63,6 @@ class GoogleMapsViewController: UIViewController, CLLocationManagerDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    /*func getJobsCoordinates() {
-        for job in claimedJobs {
-            getJobCoordinates(job.pickedUp ? job.dropoff_address : job.pickup_address, jobId: String(job.ID))
-        }
-    }*/
     
     @IBAction func updatePressed(sender: UIBarButtonItem) {
         

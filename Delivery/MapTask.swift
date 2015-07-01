@@ -24,9 +24,13 @@ class MapTask: NSObject {
         super.init()
     }
     
+    // synchronously gets the coordinates of an address from Google.
     func geocodeAddress(address: String!, withCompletionHandler completionHandler: ((status: String, success: Bool) -> Void)) {
         if let lookupAddress = address {
+            
             var geocodeURLString = baseURLGeocode + "address=" + lookupAddress
+            
+            // replaces spaces with percentages followed by www codes.
             geocodeURLString = geocodeURLString.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!
             
             let geocodeURL = NSURL(string: geocodeURLString)

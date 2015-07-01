@@ -47,6 +47,11 @@ class ClaimedJobsViewController: UITableViewController, UITableViewDataSource {
         claimedJobs = jobsList.claimedJobs
         tableView.reloadData()
     }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
 
     @IBAction func pickedUpPressed(sender: UIButton) {
         updateStatus(accessKey, deliveryId: sender.tag, status: "In%20Transit")
@@ -65,12 +70,7 @@ class ClaimedJobsViewController: UITableViewController, UITableViewDataSource {
         claimedJobs = jobsList.claimedJobs
         tableView.reloadData()
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+ 
     // MARK: - Table view data source
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

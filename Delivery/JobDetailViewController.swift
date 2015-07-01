@@ -63,13 +63,13 @@ class JobDetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        claimButton.hidden = jobSelected.claimed == 1 ? true : false
+    }
+    
     @IBAction func claimButtonPressed(sender: UIButton) {
         claimJob(accessKey, deliveryId: jobSelected.ID)
         JobsList.jobsList.removeUnclaimedJob(jobSelected)
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        claimButton.hidden = jobSelected.claimed == 1 ? true : false
     }
     
     //MARK: - Server Communication
@@ -92,8 +92,4 @@ class JobDetailViewController: UIViewController {
             let responseDict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &error) as! NSDictionary
         })
     }
-    
-    //MARK: - Google Maps Communication
-    
-    
 }
