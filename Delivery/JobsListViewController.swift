@@ -13,12 +13,20 @@ class JobsListViewController: UITableViewController, UITableViewDataSource {
     var jobsList: JobsList!
     var unclaimedJobs: [Job]!
     var accessKey: String!
+    var refresh: UIRefreshControl!
     
     let cellIdentifier = "JobCell"
     let httpHelper = HTTPHelper()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //setting up pull down to refresh
+        self.refresh = UIRefreshControl()
+        self.refresh.attributedTitle = NSAttributedString(string: "Pull to refresh!")
+        self.refresh.addTarget(self, action: "refreshTable", forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl = refresh
+        self.tableView.addSubview(refresh)
         
         let defaults = NSUserDefaults.standardUserDefaults()
         if defaults.objectForKey("userLoggedIn?") == nil {
@@ -30,24 +38,19 @@ class JobsListViewController: UITableViewController, UITableViewDataSource {
         let keychainWrapper = KeychainWrapper()
         accessKey = keychainWrapper.myObjectForKey("v_Data") as! String
         
-        // right thing to do here would be to get jobsList from server and assign it to unclaimedJobs
         jobsList = JobsList.jobsList
-        /*
-        if jobsList.unclaimedJobs.isEmpty {
-            jobsList.unclaimedJobs = [Job(identifier: 1), Job(identifier: 2),Job(identifier: 3), Job(identifier: 4)]
-        }
-        unclaimedJobs = jobsList.unclaimedJobs
-        for job in unclaimedJobs {
-            job.wage = Double(arc4random_uniform(16))
-            job.pickup_distance = Int(arc4random_uniform(32))
-        }*/
         requestJobs(accessKey)
+    }
+    
+    func refreshTable(){
+        requestJobs(accessKey)
+        self.refreshControl?.endRefreshing()
     }
     
     // makes sure data is updated after a user claims a job
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        requestJobs(accessKey)
+        unclaimedJobs = jobsList.unclaimedJobs
         tableView.reloadData()
     }
 

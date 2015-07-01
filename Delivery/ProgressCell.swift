@@ -50,6 +50,7 @@ class ProgressCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        pickupButton.setImage(UIImage(named:"checked-box"), forState:UIControlState.Disabled)
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

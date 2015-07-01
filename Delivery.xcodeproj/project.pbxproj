@@ -11,6 +11,7 @@
 		1C291B521B3F5DED003BD7D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C291B501B3F5DED003BD7D7 /* Main.storyboard */; };
 		1C6DC6941B3C85930017632F /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 1C6DC6931B3C85930017632F /* Podfile */; };
 		1C6DC6961B3C87310017632F /* GoogleMapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6DC6951B3C87310017632F /* GoogleMapsViewController.swift */; };
+		1C7F92BA1B43335C005AFC8D /* MapTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C7F92B91B43335C005AFC8D /* MapTask.swift */; };
 		1CCE6DE91B38B69600D0F5D2 /* JobsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCE6DE81B38B69600D0F5D2 /* JobsListViewController.swift */; };
 		1CCE6DEB1B38B7D700D0F5D2 /* JobDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCE6DEA1B38B7D700D0F5D2 /* JobDetailViewController.swift */; };
 		1CCE6DEF1B38FC9600D0F5D2 /* ClaimedJobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCE6DEE1B38FC9600D0F5D2 /* ClaimedJobsViewController.swift */; };
@@ -56,6 +57,7 @@
 		1C291B511B3F5DED003BD7D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1C6DC6931B3C85930017632F /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		1C6DC6951B3C87310017632F /* GoogleMapsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleMapsViewController.swift; sourceTree = "<group>"; };
+		1C7F92B91B43335C005AFC8D /* MapTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapTask.swift; sourceTree = "<group>"; };
 		1CAF8D2F1B423D7400C18FCE /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 		1CCE6DE81B38B69600D0F5D2 /* JobsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobsListViewController.swift; sourceTree = "<group>"; };
 		1CCE6DEA1B38B7D700D0F5D2 /* JobDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDetailViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				1CE473AF1B3DF07600542D50 /* HTTPHelper.swift */,
+				1C7F92B91B43335C005AFC8D /* MapTask.swift */,
 				7E55C9CB1B3879B300360876 /* AppDelegate.swift */,
 				7E55C9ED1B38873100360876 /* Jobs.swift */,
 				1CCE6DF81B39D8CA00D0F5D2 /* JobCell.swift */,
@@ -239,6 +242,7 @@
 				TargetAttributes = {
 					7E55C9C51B3879B300360876 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = F6RJDD269P;
 					};
 					7E55C9DC1B3879B300360876 = {
 						CreatedOnToolsVersion = 6.4;
@@ -325,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CCE6DF31B3917E400D0F5D2 /* LoginViewController.swift in Sources */,
+				1C7F92BA1B43335C005AFC8D /* MapTask.swift in Sources */,
 				1CCE6DEF1B38FC9600D0F5D2 /* ClaimedJobsViewController.swift in Sources */,
 				1CCE6DFB1B39FB7D00D0F5D2 /* ProgressCell.swift in Sources */,
 				1CCE6DE91B38B69600D0F5D2 /* JobsListViewController.swift in Sources */,
@@ -464,10 +469,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Delivery/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Delivery/Delivery-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -479,10 +487,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Delivery/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Delivery/Delivery-Bridging-Header.h";
 			};
 			name = Release;

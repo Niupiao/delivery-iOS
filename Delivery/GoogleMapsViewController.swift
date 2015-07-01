@@ -9,41 +9,114 @@
 import UIKit
 import GoogleMaps
 
-class GoogleMapsViewController: UIViewController {
+class GoogleMapsViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var mView: GMSMapView!
     
+    let locationManager = CLLocationManager()
+    let jobsList = JobsList.jobsList
+    
+    var jobsCoordinates: Dictionary<String, CLLocationCoordinate2D>!
+    var mapTask = MapTask()
+    var claimedJobs: Array<Job>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        
         // Do any additional setup after loading the view.
-        var camera = GMSCameraPosition.cameraWithLatitude(47.92,
-            longitude:106.92, zoom:6)
-        var mapView = GMSMapView.mapWithFrame(CGRectZero, camera:camera)
         
-        var marker = GMSMarker()
-        marker.position = camera.target
-        marker.snippet = "Hello World"
-        marker.appearAnimation = kGMSMarkerAnimationPop
-        marker.map = mView
+        mView.myLocationEnabled = true
+        mView.settings.myLocationButton = true
         
-        mView = mapView
-    }
+        let camera = GMSCameraPosition.cameraWithLatitude(locationManager.location.coordinate.latitude, longitude: locationManager.location.coordinate.longitude, zoom: 14)
+        
+        mView.camera = camera
 
+        
+        claimedJobs = jobsList.claimedJobs
+        
+        for job in claimedJobs {
+            var locationMarker = GMSMarker(position: job.location)
+            locationMarker.appearAnimation = kGMSMarkerAnimationPop
+            locationMarker.icon = job.pickedUp ? GMSMarker.markerImageWithColor(UIColor.blueColor()) : GMSMarker.markerImageWithColor(UIColor.redColor())
+            locationMarker.map = mView
+        }
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        claimedJobs = jobsList.claimedJobs
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    /*func getJobsCoordinates() {
+        for job in claimedJobs {
+            getJobCoordinates(job.pickedUp ? job.dropoff_address : job.pickup_address, jobId: String(job.ID))
+        }
+    }*/
+    
+    @IBAction func updatePressed(sender: UIBarButtonItem) {
+        
+        mView.clear()
+        
+        claimedJobs = jobsList.claimedJobs
+        
+        for job in claimedJobs {
+            var locationMarker = GMSMarker(position: job.location)
+            locationMarker.appearAnimation = kGMSMarkerAnimationPop
+            locationMarker.icon = job.pickedUp ? GMSMarker.markerImageWithColor(UIColor.blueColor()) : GMSMarker.markerImageWithColor(UIColor.redColor())
+            locationMarker.map = mView
+        }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
+    
+    
+    // MARK: - Location Manager Delegate Methods
+    
 
+    func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+  
+        if status == .AuthorizedWhenInUse {
+         
+            locationManager.startUpdatingLocation()
+            
+            mView.myLocationEnabled = true
+            mView.settings.myLocationButton = true
+        }
+    }
+    
+ 
+    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
+        if let location = locations.first as? CLLocation {
+            
+            
+            mView.camera = GMSCameraPosition(target: location.coordinate, zoom: 15, bearing: 0, viewingAngle: 0)
+            
+       
+            locationManager.stopUpdatingLocation()
+        }
+    }
+    
+    // MARK: - Helper Methods
+    
+    func showAlertWithMessage(message: String) {
+        let alertController = UIAlertController(title: "Maps", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        
+        let closeAction = UIAlertAction(title: "Close", style: UIAlertActionStyle.Cancel) { (alertAction) -> Void in
+            
+        }
+        
+        alertController.addAction(closeAction)
+        
+        presentViewController(alertController, animated: true, completion: nil)
+    }
 }
+

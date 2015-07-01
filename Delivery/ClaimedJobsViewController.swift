@@ -19,9 +19,15 @@ class ClaimedJobsViewController: UITableViewController, UITableViewDataSource {
     var claimedJobs: [Job]!
     var unclaimedJobs: [Job]!
     var accessKey: String!
+    var refresh: UIRefreshControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.refresh = UIRefreshControl()
+        self.refresh.attributedTitle = NSAttributedString(string: "Pull down to refresh.")
+        self.refresh.addTarget(self, action: "refreshTable", forControlEvents: UIControlEvents.ValueChanged)
+        self.tableView.addSubview(refresh)
         
         accessKey = keychain.myObjectForKey("v_Data") as! String
         
@@ -31,16 +37,34 @@ class ClaimedJobsViewController: UITableViewController, UITableViewDataSource {
         requestClaimed(accessKey)
     }
     
+    func refreshTable(){
+        requestClaimed(accessKey)
+        self.refresh.endRefreshing()
+    }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        requestClaimed(accessKey)
+        claimedJobs = jobsList.claimedJobs
+        tableView.reloadData()
     }
 
     @IBAction func pickedUpPressed(sender: UIButton) {
         updateStatus(accessKey, deliveryId: sender.tag, status: "In%20Transit")
-        sender.setImage(UIImage(named:"checked-box"), forState:UIControlState.Normal)
-        requestClaimed(accessKey)
         
+        // find job in claimed, set picked up to true
+        if let index = find(claimedJobs, Job(identifier: sender.tag)){
+            claimedJobs[index].pickedUp = true
+        }
+        sender.setImage(UIImage(named:"checked-box"), forState:UIControlState.Normal)
+        claimedJobs = jobsList.claimedJobs
+        tableView.reloadData()
+    }
+    
+    @IBAction func deliveredPressed(sender: UIButton) {
+        updateStatus(accessKey, deliveryId: sender.tag, status: "Delivered")
+        jobsList.removeClaimedJob(Job(identifier: sender.tag))
+        claimedJobs = jobsList.claimedJobs
+        tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -91,6 +115,7 @@ class ClaimedJobsViewController: UITableViewController, UITableViewDataSource {
     
     // MARK: - Server Communication
     
+    // Urtuu Server
     func requestClaimed(key: String){
         let request = httpHelper.buildRequest("claimed", method: "GET", key: key, deliveryId: nil, status: nil)
         httpHelper.sendRequest(request, completion: {(data:NSData!, error:NSError!) in
@@ -101,10 +126,10 @@ class ClaimedJobsViewController: UITableViewController, UITableViewDataSource {
                 alert.title = "Error"
                 alert.message = errorMessage as String
                 alert.show()
-                    
+                
                 return
             }
-                
+            
             var error:NSError?
             let responseDict: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.AllowFragments, error: &error)
             self.jobsList.claimedJobs = self.httpHelper.parseJson(responseDict!)
@@ -112,6 +137,7 @@ class ClaimedJobsViewController: UITableViewController, UITableViewDataSource {
             self.tableView.reloadData()
         })
     }
+
     
     func updateStatus(key: String, deliveryId: Int, status: String){
         let request = httpHelper.buildRequest("status", method: "GET", key: key, deliveryId: deliveryId, status: status)
@@ -128,5 +154,4 @@ class ClaimedJobsViewController: UITableViewController, UITableViewDataSource {
             }
         })
     }
-
 }
