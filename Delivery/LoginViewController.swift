@@ -22,6 +22,7 @@ class LoginViewController: UIViewController {
         
         // Do any additional setup after loading the view.
         activityIndicator.hidden = true
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "blurred-background.png")!)
     }
     
     override func didReceiveMemoryWarning() {
