@@ -11,8 +11,10 @@ import UIKit
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var keyField: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var usernameField: UITextField!
     
     let httpHelper = HTTPHelper()
     let defaults = NSUserDefaults.standardUserDefaults()
@@ -26,6 +28,7 @@ class LoginViewController: UIViewController {
         self.view.contentMode = .ScaleAspectFill
         
         loginButton.layer.cornerRadius = 10
+        signUpButton.layer.cornerRadius = 10
     }
     
     override func didReceiveMemoryWarning() {
@@ -38,19 +41,21 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func backgroundTap(sender: UIControl){
-        keyField.resignFirstResponder()
+        usernameField.resignFirstResponder()
+        passwordField.resignFirstResponder()
     }
     
     @IBAction func logginButtonPressed(sender: UIButton) {
-        keyField.resignFirstResponder()
+        usernameField.resignFirstResponder()
+        passwordField.resignFirstResponder()
         
-        if keyField.text.isEmpty {
-          displayAlertMessage("Key Missing", alertDescription: "You must enter a key")
+        if usernameField.text.isEmpty {
+          displayAlertMessage("Username Missing", alertDescription: "You must enter a key")
             return
         }
         
-        if !keyField.text.isEmpty {
-            loginRequest(keyField.text)
+        if !usernameField.text.isEmpty {
+            loginRequest(usernameField.text)
             loginButton.hidden = true
             activityIndicator.hidden = false
             activityIndicator.startAnimating()
