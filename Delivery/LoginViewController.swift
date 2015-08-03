@@ -23,6 +23,9 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
         activityIndicator.hidden = true
         self.view.backgroundColor = UIColor(patternImage: UIImage(named: "blurred-background.png")!)
+        self.view.contentMode = .ScaleAspectFill
+        
+        loginButton.layer.cornerRadius = 10
     }
     
     override func didReceiveMemoryWarning() {
@@ -86,6 +89,7 @@ class LoginViewController: UIViewController {
     
     //MARK: - Helper Methods
     
+    // creates error alert and shows it
     func displayAlertMessage(alertTitle:String, alertDescription:String) -> Void {
         // hide activityIndicator view and display alert message
         let errorAlert = UIAlertView(title:alertTitle, message:alertDescription, delegate:nil, cancelButtonTitle:"OK")

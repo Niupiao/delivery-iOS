@@ -67,6 +67,7 @@ class JobDetailViewController: UIViewController {
         claimButton.hidden = jobSelected.claimed == 1 ? true : false
     }
     
+    // claims the job, removes it from unclaimedJobs array
     @IBAction func claimButtonPressed(sender: UIButton) {
         claimJob(accessKey, deliveryId: jobSelected.ID)
         JobsList.jobsList.removeUnclaimedJob(jobSelected)

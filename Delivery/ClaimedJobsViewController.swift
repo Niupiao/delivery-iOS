@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ClaimedJobsViewController: UITableViewController, UITableViewDataSource {
+class ClaimedJobsViewController: UITableViewController {
     
     let pickupCellIdentifier = "ProgressCell"
     let deliveryCellIdentifier = "DeliveryCell"
@@ -52,7 +52,8 @@ class ClaimedJobsViewController: UITableViewController, UITableViewDataSource {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    // when pickup button is pressed
     @IBAction func pickedUpPressed(sender: UIButton) {
         updateStatus(accessKey, deliveryId: sender.tag, status: "In%20Transit")
         
@@ -64,6 +65,7 @@ class ClaimedJobsViewController: UITableViewController, UITableViewDataSource {
         tableView.reloadData()
     }
     
+    // when delivered button is pressed
     @IBAction func deliveredPressed(sender: UIButton) {
         updateStatus(accessKey, deliveryId: sender.tag, status: "Delivered")
         jobsList.removeClaimedJob(Job(identifier: sender.tag))
@@ -101,6 +103,10 @@ class ClaimedJobsViewController: UITableViewController, UITableViewDataSource {
         }
     }
     
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 67.5
+    }
+    
     // MARK: - Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -108,6 +114,7 @@ class ClaimedJobsViewController: UITableViewController, UITableViewDataSource {
         let claimedVC = segue.destinationViewController as! JobDetailViewController
         let job = claimedJobs[indexPath.row]
         
+        // pass job selected to destination view controller
         claimedVC.jobSelected = job
         claimedVC.navigationItem.title = String(job.ID)
     }

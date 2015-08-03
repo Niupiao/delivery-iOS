@@ -18,6 +18,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         GMSServices.provideAPIKey(googleMapsApiKey)
+        
+        // checking defaults to see if user is logged in
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if defaults.objectForKey("userLoggedIn?") == nil {
+            if let controller = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle()).instantiateViewControllerWithIdentifier("login") as? LoginViewController {
+                self.window?.rootViewController = controller
+            }
+        }
+        
         return true
     }
 

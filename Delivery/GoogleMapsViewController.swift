@@ -27,14 +27,17 @@ class GoogleMapsViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         
-        // Do any additional setup after loading the view.
+        // enable location and buttonview on load
         mView.myLocationEnabled = true
         mView.settings.myLocationButton = true
         
+        // observer that centers the map around the user's locatino
         mView.addObserver(self, forKeyPath: "myLocation", options: .New, context: nil)
         
+        // set this controller's claimedJobs instance
         claimedJobs = jobsList.claimedJobs
         
+        // puts jobs markers on map
         for job in claimedJobs {
             var locationMarker = GMSMarker(position: job.location)
             locationMarker.appearAnimation = kGMSMarkerAnimationPop
@@ -44,6 +47,7 @@ class GoogleMapsViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
+    // on load, centers around user's location
     override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {
         if firstTimeLocating {
             let myLocation: CLLocation = change[NSKeyValueChangeNewKey] as! CLLocation

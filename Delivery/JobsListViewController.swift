@@ -28,20 +28,27 @@ class JobsListViewController: UITableViewController, UITableViewDataSource {
         self.refreshControl = refresh
         self.tableView.addSubview(refresh)
         
-        // checking defaults to see if user is logged in
-        let defaults = NSUserDefaults.standardUserDefaults()
-        if defaults.objectForKey("userLoggedIn?") == nil {
-            if let loginController = self.storyboard?.instantiateViewControllerWithIdentifier("login") as? UIViewController {
-                self.presentViewController(loginController, animated: true, completion: nil)
-            }
-        }
-        
         // getting access key from keychain
         let keychainWrapper = KeychainWrapper()
         accessKey = keychainWrapper.myObjectForKey("v_Data") as! String
         
         jobsList = JobsList.jobsList
         requestJobs(accessKey)
+        
+        /*if jobsList.unclaimedJobs.isEmpty {
+            self.tableView.hidden = true
+            let emptyView = UIView(frame: self.view.frame)
+            let emptyLabel = UILabel()
+            emptyLabel.text = "No Jobs To Claim"
+            emptyLabel.font = UIFont(name: "HelveticaNeue-Light", size: 17.0)
+            self.view.addSubview(emptyLabel)
+            self.view.addSubview(emptyView)
+            emptyLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+            let emptyLabelXConstraint = NSLayoutConstraint(item: emptyLabel, attribute: .CenterX, relatedBy: .Equal, toItem: self.view, attribute: .CenterX, multiplier: 1.0, constant: 0.0)
+            let emptyLabelYConstraint = NSLayoutConstraint(item: emptyLabel, attribute: .CenterY, relatedBy: .Equal, toItem: self.view, attribute: .CenterY, multiplier: 1.0, constant: 0.0)
+            
+            emptyLabel.addConstraints([emptyLabelXConstraint,emptyLabelYConstraint])
+        }*/
     }
     
     func refreshTable(){
@@ -66,23 +73,31 @@ class JobsListViewController: UITableViewController, UITableViewDataSource {
         var sortByWage: Bool = false
         var sortByDistance: Bool = false
         var sortByTimeLeft: Bool =  false
+        
+        // create the alert controller
         let controller = UIAlertController(title: "Sort", message: "Choose a sorting method", preferredStyle: .ActionSheet)
         
+        // by wage alert action, sorting by wage
         let byWage = UIAlertAction(title: "By Wage", style: UIAlertActionStyle.Default, handler: { action in
             self.unclaimedJobs.sort() { $0.wage > $1.wage }
             self.tableView.reloadData()
         })
         
+        //by distance alert action, sorting by distance
         let byDistance = UIAlertAction(title: "By Distance", style: UIAlertActionStyle.Default, handler: { action in
             self.unclaimedJobs.sort() { $0.pickup_distance < $1.pickup_distance }
             self.tableView.reloadData()
         })
         
+        // Never mind, don't want to sort
         let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
         
+        // add actions to controller
         controller.addAction(byWage)
         controller.addAction(byDistance)
         controller.addAction(cancel)
+        
+        // add alert controller to view
         presentViewController(controller, animated: true, completion: nil)
     }
     

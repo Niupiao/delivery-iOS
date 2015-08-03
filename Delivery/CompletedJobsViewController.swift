@@ -23,15 +23,18 @@ class CompletedJobsViewController: UITableViewController, UITableViewDataSource 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // set up refresh to control
         self.refresh = UIRefreshControl()
         self.refresh.attributedTitle = NSAttributedString(string: "Pull down to refresh.")
         self.refresh.addTarget(self, action: "refreshTable", forControlEvents: UIControlEvents.ValueChanged)
         self.refreshControl = refresh
         self.tableView.addSubview(refresh)
         
+        // get access key from keychain
         let keychainWrapper = KeychainWrapper()
         accessKey = keychainWrapper.myObjectForKey("v_Data") as! String
         
+        // initialize completedJobs list and totalSalary
         jobsList = JobsList.jobsList
         completedJobs = jobsList.completedJobs
         totalSalary = 0
