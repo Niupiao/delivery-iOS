@@ -19,6 +19,8 @@
 		1CBECF351B700566007C1024 /* SignUpViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBECF341B700566007C1024 /* SignUpViewController2.swift */; };
 		1CBECF371B71183B007C1024 /* SignUpViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBECF361B71183B007C1024 /* SignUpViewController3.swift */; };
 		1CBECF391B714CA2007C1024 /* SignUpViewController4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBECF381B714CA2007C1024 /* SignUpViewController4.swift */; };
+		1CBECF3B1B715591007C1024 /* SignUpViewController5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBECF3A1B715591007C1024 /* SignUpViewController5.swift */; };
+		1CBECF3D1B716EDB007C1024 /* SignUpViewControllerFinal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CBECF3C1B716EDB007C1024 /* SignUpViewControllerFinal.swift */; };
 		1CCE6DE91B38B69600D0F5D2 /* JobsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCE6DE81B38B69600D0F5D2 /* JobsListViewController.swift */; };
 		1CCE6DEB1B38B7D700D0F5D2 /* JobDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCE6DEA1B38B7D700D0F5D2 /* JobDetailViewController.swift */; };
 		1CCE6DEF1B38FC9600D0F5D2 /* ClaimedJobsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCE6DEE1B38FC9600D0F5D2 /* ClaimedJobsViewController.swift */; };
@@ -73,6 +75,8 @@
 		1CBECF341B700566007C1024 /* SignUpViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController2.swift; sourceTree = "<group>"; };
 		1CBECF361B71183B007C1024 /* SignUpViewController3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController3.swift; sourceTree = "<group>"; };
 		1CBECF381B714CA2007C1024 /* SignUpViewController4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController4.swift; sourceTree = "<group>"; };
+		1CBECF3A1B715591007C1024 /* SignUpViewController5.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController5.swift; sourceTree = "<group>"; };
+		1CBECF3C1B716EDB007C1024 /* SignUpViewControllerFinal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewControllerFinal.swift; sourceTree = "<group>"; };
 		1CCE6DE81B38B69600D0F5D2 /* JobsListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobsListViewController.swift; sourceTree = "<group>"; };
 		1CCE6DEA1B38B7D700D0F5D2 /* JobDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDetailViewController.swift; sourceTree = "<group>"; };
 		1CCE6DEE1B38FC9600D0F5D2 /* ClaimedJobsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClaimedJobsViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +160,8 @@
 				1CBECF341B700566007C1024 /* SignUpViewController2.swift */,
 				1CBECF361B71183B007C1024 /* SignUpViewController3.swift */,
 				1CBECF381B714CA2007C1024 /* SignUpViewController4.swift */,
+				1CBECF3A1B715591007C1024 /* SignUpViewController5.swift */,
+				1CBECF3C1B716EDB007C1024 /* SignUpViewControllerFinal.swift */,
 				1C6DC6951B3C87310017632F /* GoogleMapsViewController.swift */,
 				1C291B4D1B3F27EE003BD7D7 /* KeychainWrapper.h */,
 				1C291B4E1B3F27EF003BD7D7 /* KeychainWrapper.m */,
@@ -363,8 +369,10 @@
 				1C742A4C1B444AA000753C83 /* JobCompletedCell.swift in Sources */,
 				7E55C9CC1B3879B300360876 /* AppDelegate.swift in Sources */,
 				1C6DC6961B3C87310017632F /* GoogleMapsViewController.swift in Sources */,
+				1CBECF3B1B715591007C1024 /* SignUpViewController5.swift in Sources */,
 				1C291B4F1B3F27EF003BD7D7 /* KeychainWrapper.m in Sources */,
 				1CBECF391B714CA2007C1024 /* SignUpViewController4.swift in Sources */,
+				1CBECF3D1B716EDB007C1024 /* SignUpViewControllerFinal.swift in Sources */,
 				1CCE6DFF1B3A3A8C00D0F5D2 /* DeliveryCell.swift in Sources */,
 				1CE473B01B3DF07600542D50 /* HTTPHelper.swift in Sources */,
 				7E55C9EE1B38873100360876 /* Jobs.swift in Sources */,
