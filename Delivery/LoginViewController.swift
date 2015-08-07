@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, SignUpControllerDelegate {
     
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -110,6 +110,20 @@ class LoginViewController: UIViewController {
     func updateUserLoggedInFlag(){
         defaults.setObject("loggedIn", forKey: "userLoggedIn?")
         defaults.synchronize()
+    }
+    
+    // MARK: - Sign Up Controller Delegate
+    
+    func didCancelSignUp(signUp: SignUpViewController) {
+        signUp.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let navVC = segue.destinationViewController as! UINavigationController
+        let signUpVC = navVC.viewControllers[0] as! SignUpViewController
+        signUpVC.delegate = self
     }
 
 }
