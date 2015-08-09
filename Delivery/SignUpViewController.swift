@@ -36,31 +36,40 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         
         nextButton.layer.cornerRadius = 10
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardDidShow:", name: UIKeyboardDidShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
     }
     
-    func keyboardDidShow(aNotification: NSNotification){
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+    }
+    
+    func keyboardWillShow(aNotification: NSNotification){
         let info: NSDictionary = aNotification.userInfo!
         let kbSize = info.objectForKey(UIKeyboardFrameBeginUserInfoKey)!.CGRectValue().size
         
-        if let activeField = self.activeField {
-            var viewFrame = activeField.superview!.frame
-            viewFrame.size.height = viewFrame.size.height + kbSize.height
-            activeField.superview!.frame = viewFrame
-            scrollView.setContentOffset(CGPointMake(0.0, activeField.frame.origin.y - kbSize.height), animated: true)
+        let contentInsets = UIEdgeInsetsMake(0, 0, kbSize.height, 0)
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
+        
+        var viewFrame = self.contentView.frame
+        viewFrame.size.height = viewFrame.size.height - kbSize.height
+        println(contentView.frame.height)
+        println(viewFrame.height)
+        if let activeField = activeField {
+            if(!viewFrame.contains(activeField.frame.origin)){
+                scrollView.scrollRectToVisible(activeField.frame, animated: true)
+            }
         }
     }
     
     func keyboardWillHide(aNotification: NSNotification) {
-        if let navBarHeight = self.navigationController?.navigationBar.frame.height {
-            let statusBarHeight = UIApplication.sharedApplication().statusBarFrame.height
-            let offset = navBarHeight + statusBarHeight
-            scrollView.setContentOffset(CGPointMake(0.0, -offset), animated: true)
-        } else {
-            scrollView.setContentOffset(CGPointMake(0.0, 0.0), animated: true)
-        }
+        let contentInsets = UIEdgeInsetsZero
+        scrollView.contentInset = contentInsets
+        scrollView.scrollIndicatorInsets = contentInsets
     }
+    
+    // MARK: - Action Methods
     
     @IBAction func cancelButtonPressed(sender: UIBarButtonItem) {
         if let delegate = self.delegate {
@@ -74,11 +83,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func didEndEditingTextfield(sender: UITextField) {
         sender.resignFirstResponder()
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     // MARK: - Text Field Delegate Methods

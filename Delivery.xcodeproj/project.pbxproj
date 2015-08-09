@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C0185DB1B7510DF002B05A4 /* SignUpViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0185DA1B7510DF002B05A4 /* SignUpViewController1.swift */; };
 		1C291B4F1B3F27EF003BD7D7 /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C291B4E1B3F27EF003BD7D7 /* KeychainWrapper.m */; };
 		1C291B521B3F5DED003BD7D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C291B501B3F5DED003BD7D7 /* Main.storyboard */; };
 		1C5FAE0E1B73BE5000CA4DB8 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5FAE0D1B73BE5000CA4DB8 /* SignUpViewController.swift */; };
@@ -55,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C0185DA1B7510DF002B05A4 /* SignUpViewController1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController1.swift; sourceTree = "<group>"; };
 		1C291B4C1B3F27EE003BD7D7 /* Delivery-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Delivery-Bridging-Header.h"; sourceTree = "<group>"; };
 		1C291B4D1B3F27EE003BD7D7 /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainWrapper.h; sourceTree = "<group>"; };
 		1C291B4E1B3F27EF003BD7D7 /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainWrapper.m; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				1CCE6DE81B38B69600D0F5D2 /* JobsListViewController.swift */,
 				1CCE6DF21B3917E400D0F5D2 /* LoginViewController.swift */,
 				1C5FAE0D1B73BE5000CA4DB8 /* SignUpViewController.swift */,
+				1C0185DA1B7510DF002B05A4 /* SignUpViewController1.swift */,
 				1C6DC6951B3C87310017632F /* GoogleMapsViewController.swift */,
 				1C291B4D1B3F27EE003BD7D7 /* KeychainWrapper.h */,
 				1C291B4E1B3F27EF003BD7D7 /* KeychainWrapper.m */,
@@ -352,6 +355,7 @@
 				1C742A4C1B444AA000753C83 /* JobCompletedCell.swift in Sources */,
 				7E55C9CC1B3879B300360876 /* AppDelegate.swift in Sources */,
 				1C6DC6961B3C87310017632F /* GoogleMapsViewController.swift in Sources */,
+				1C0185DB1B7510DF002B05A4 /* SignUpViewController1.swift in Sources */,
 				1C291B4F1B3F27EF003BD7D7 /* KeychainWrapper.m in Sources */,
 				1CCE6DFF1B3A3A8C00D0F5D2 /* DeliveryCell.swift in Sources */,
 				1CE473B01B3DF07600542D50 /* HTTPHelper.swift in Sources */,
